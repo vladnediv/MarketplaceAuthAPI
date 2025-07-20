@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceAuthAPI", "Marke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{8D356070-DCFD-4AF8-B557-489A92131969}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{89209E84-ED1F-43E9-9176-1562DD62D85E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{0AE632C4-F71A-48B3-B25D-D85222D496EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8D356070-DCFD-4AF8-B557-489A92131969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D356070-DCFD-4AF8-B557-489A92131969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D356070-DCFD-4AF8-B557-489A92131969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89209E84-ED1F-43E9-9176-1562DD62D85E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89209E84-ED1F-43E9-9176-1562DD62D85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89209E84-ED1F-43E9-9176-1562DD62D85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89209E84-ED1F-43E9-9176-1562DD62D85E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE632C4-F71A-48B3-B25D-D85222D496EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE632C4-F71A-48B3-B25D-D85222D496EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE632C4-F71A-48B3-B25D-D85222D496EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE632C4-F71A-48B3-B25D-D85222D496EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

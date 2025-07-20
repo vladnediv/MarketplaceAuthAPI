@@ -11,4 +11,7 @@ public class ApplicationUser : IdentityUser
     public MarketplaceUser? MarketplaceUser { get; set; }
     public MarketplaceShop? MarketplaceShop { get; set; }
     public MarketplaceAdmin? MarketplaceAdmin { get; set; }
+    
+    public string? RefreshToken { get; set; }
+    public DateTime? RefreshTokenExpireTime { get; set; }
 }
