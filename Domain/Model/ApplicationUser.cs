@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Model;
 
-public class ApplicationUser : IdentityUser
+public class ApplicationUser : IdentityUser<int>
 {
     public int? MarketplaceUserId { get; set; }
     public int? MarketplaceShopId { get; set; }

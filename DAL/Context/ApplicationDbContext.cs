@@ -1,40 +1,56 @@
 using Domain.Model;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Context;
 
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser,  IdentityRole<int>, int>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     
     public DbSet<MarketplaceUser> MarketplaceUsers { get; set; }
     public DbSet<MarketplaceShop> MarketplaceShops { get; set; }
     public DbSet<MarketplaceAdmin> MarketplaceAdmins { get; set; }
+    public DbSet<Address> Addresses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
         
-        //ApplicationUser - MarketplaceUser : One-To-One relation
-        builder.Entity<ApplicationUser>()
-            .HasOne(x => x.MarketplaceUser)
-            .WithOne(x => x.ApplicationUser)
-            .HasForeignKey<MarketplaceUser>(x => x.ApplicationUserId)
+        //MarketplaceUser - ApplicationUser : One-To-One relation
+        builder.Entity<MarketplaceUser>()
+            .HasOne(mu => mu.ApplicationUser)
+            .WithOne(x => x.MarketplaceUser)
+            .HasForeignKey<MarketplaceUser>(mu => mu.ApplicationUserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        //MarketplaceShop - ApplicationUser : One-To-One relation
+        builder.Entity<MarketplaceShop>()
+            .HasOne(ms => ms.ApplicationUser)
+            .WithOne(x => x.MarketplaceShop)
+            .HasForeignKey<MarketplaceShop>(ms => ms.ApplicationUserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        //MarketplaceAdmin - ApplicationUser : One-To-One relation
+        builder.Entity<MarketplaceAdmin>()
+            .HasOne(ma => ma.ApplicationUser)
+            .WithOne(x => x.MarketplaceAdmin)
+            .HasForeignKey<MarketplaceAdmin>(ma => ma.ApplicationUserId)
             .OnDelete(DeleteBehavior.Cascade);
         
-        //ApplicationUser - MarketplaceShop : One-To-One relation
-        builder.Entity<ApplicationUser>()
-            .HasOne(x => x.MarketplaceShop)
-            .WithOne(x => x.ApplicationUser)
-            .HasForeignKey<MarketplaceShop>(x => x.ApplicationUserId)
-            .OnDelete(DeleteBehavior.Cascade);
+        //Address -> MarketplaceUser : One-To-Many relation
+        builder.Entity<MarketplaceUser>()
+            .HasMany(x => x.Addresses)
+            .WithOne(x => x.User)
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
         
-        //ApplicationUser - MarketplaceAdmin : One-To-One relation
-        builder.Entity<ApplicationUser>()
-            .HasOne(x => x.MarketplaceAdmin)
-            .WithOne(x => x.ApplicationUser)
-            .HasForeignKey<MarketplaceAdmin>(x => x.ApplicationUserId)
+        //Address -> MarketplaceShop : One-To-One relation
+        builder.Entity<MarketplaceShop>()
+            .HasOne(x => x.Address)
+            .WithOne(x => x.Shop)
+            .HasForeignKey<Address>(x => x.ShopId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
