@@ -123,6 +123,13 @@ public class MarketplaceAdminAuthService : AuthService, IUserAuthService<Registe
 
         if (user != null)
         {
+            
+            if (!user.MarketplaceAdminId.HasValue)
+            {
+                serviceRes.IsSuccess = false;
+                return serviceRes;
+            }
+            
             var isValid = await _userManager.CheckPasswordAsync(user, loginUserModel.Password);
             if (isValid)
             {

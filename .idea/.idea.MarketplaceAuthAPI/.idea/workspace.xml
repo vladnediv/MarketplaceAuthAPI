@@ -9,20 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/BLL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/DTO/AddressDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/IdentityRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/IdentityRoles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Model/MarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/MarketplaceShop.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +152,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753186751377</updated>
       <workItem from="1753186752453" duration="7948000" />
-      <workItem from="1753274831949" duration="45646000" />
+      <workItem from="1753274831949" duration="51294000" />
     </task>
     <servers />
   </component>
