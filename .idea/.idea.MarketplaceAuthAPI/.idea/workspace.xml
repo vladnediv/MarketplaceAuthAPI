@@ -9,46 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BLL/Model/Attribute/NotEqualAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/ChangePasswordModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/AddressDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/IdentityRoles.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/Interface/IRegisterModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/Interface/IUpdateUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceAdmin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/LoginUserModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/UpdateUserModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/ResponseModel/ServiceResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceAdminService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceShopService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IGenericService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IJwtService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Migration/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Migration/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Repository/Interface/IGenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/Interface/IGenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Repository/MarketplaceAdminRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/MarketplaceAdminRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Repository/MarketplaceShopRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/MarketplaceShopRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Model/Address.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/Address.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Model/MarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/MarketplaceShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Model/MarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/MarketplaceUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/DTO/AddressDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/IdentityRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/IdentityRoles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" afterDir="false" />
     </list>
@@ -79,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/13fea414bb3c4e6f9337b3ef735063552b708/e9/a2433d09/UserManager`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cabf1591cccc4d0da46b6c1185146d4c32400/72/080d8d46/CompareAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1750dff95ce6347f7797ec095c5c17196efe67de17ff2666b9992265f0b6/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/22fcf6bc98d86f46d35d502592ddd281e5a9fc65b1ad2eec19898153ffa47/MemberExpression.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/271b8d2d9d94e13a469269f46758864f64ad438c3174f74d4a591af6410e96b/Future.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2bc11a42069f9763241157f68b3dffdebbffa5703fa240cd5ca89388b82222/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -125,7 +98,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Debug",
+    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Run",
     ".NET Launch Settings Profile.Unnamed.executor": "Run",
     ".NET Project.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -188,7 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753186751377</updated>
       <workItem from="1753186752453" duration="7948000" />
-      <workItem from="1753274831949" duration="35547000" />
+      <workItem from="1753274831949" duration="45646000" />
     </task>
     <servers />
   </component>
@@ -196,36 +169,4 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs</url>
-          <line>87</line>
-          <properties documentPath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" containingFunctionPresentation="Method 'GetApplicationUserByLoginAsync'">
-            <startOffsets>
-              <option value="3215" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3300" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs</url>
-          <line>231</line>
-          <properties documentPath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" containingFunctionPresentation="Method 'ConfigureRelationAsync'">
-            <startOffsets>
-              <option value="8558" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8583" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
 </project>

@@ -11,7 +11,6 @@ namespace BLL.Service;
 public class MarketplaceUserAuthService : AuthService, IUserAuthService<RegisterMarketplaceUser, UpdateMarketplaceUser>
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly RoleManager<IdentityRole<int>> _roleManager;
     private readonly IJwtService _jwtService;
     private readonly IGenericService<MarketplaceUser> _userService;
     
@@ -23,78 +22,9 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         ) : base(userManager, roleManager, jwtService)
     {
         _userManager = userManager;
-        _roleManager = roleManager;
         _jwtService = jwtService;
         _userService = userService;
     }
-    
-    
-    // public async Task<ServiceResponse<IdentityError>> RegisterAsync(RegisterUserModel<RegisterMarketplaceUser> registerUserModel)
-    // {
-    //     ServiceResponse<IdentityError> serviceRes = new ServiceResponse<IdentityError>();
-    //     
-    //     //create marketplaceUser
-    //     MarketplaceUser marketplaceUser = new MarketplaceUser()
-    //     {
-    //         FirstName = registerUserModel.UserModel.FirstName,
-    //         LastName = registerUserModel.UserModel.LastName
-    //     };
-    //     
-    //     //create applicationUser
-    //     ApplicationUser applicationUser = new ApplicationUser()
-    //     {
-    //         PhoneNumber = registerUserModel.UserModel.PhoneNumber,
-    //         Email = registerUserModel.Email
-    //     };
-    //     
-    //     //register applicationUser
-    //     IdentityResult createRes = await _userManager.CreateAsync(applicationUser, registerUserModel.Password);
-    //     if (createRes.Succeeded)
-    //     {
-    //         ServiceResponse<ApplicationUser> userRes = await GetApplicationUserByLoginAsync(registerUserModel.Email);
-    //         if (userRes.IsSuccess)
-    //         {
-    //             //add user to role
-    //             ServiceResponse<IdentityError> addRoleRes = await AddToRoleAsync(userRes.Entity, IdentityRoles.User);
-    //             if (addRoleRes.IsSuccess)
-    //             {
-    //                 //configure relation
-    //                 var res = await ConfigureRelationAsync(marketplaceUser, registerUserModel.Email);
-    //                 if (res.IsSuccess)
-    //                 {
-    //                     serviceRes.IsSuccess = true;
-    //                 }
-    //                 else
-    //                 {
-    //                     serviceRes.IsSuccess = false;
-    //                     serviceRes.Message = res.Message;
-    //                 }
-    //             }
-    //             else
-    //             { 
-    //                 await DeleteUserByIdAsync(userRes.Entity.Id);
-    //                 
-    //                 serviceRes.IsSuccess = false;
-    //                 serviceRes.Entities = addRoleRes.Entities;
-    //             }
-    //         }
-    //         else
-    //         {
-    //             serviceRes.IsSuccess = false;
-    //             serviceRes.Message = userRes.Message;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         serviceRes.IsSuccess = false;
-    //         serviceRes.Entities = createRes.Errors.ToList();
-    //     }
-    //     return serviceRes;
-    // }
-
-    //
-    
-    //
     
     public async Task<ServiceResponse<IdentityError>> RegisterAsync(RegisterUserModel<RegisterMarketplaceUser> registerUserModel)
     {
@@ -153,51 +83,6 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         return serviceRes;
     }
     
-    
-    
-    //
-    
-    // private async Task<ServiceResponse> ConfigureRelationAsync(MarketplaceUser marketplaceUser, string email)
-    // {
-    //     ServiceResponse serviceRes = new ServiceResponse();
-    //     
-    //     //get applicationUser
-    //     var applicationUserRes = await GetApplicationUserByLoginAsync(email);
-    //     
-    //     //create and get marketplaceUser
-    //     marketplaceUser.ApplicationUserId = applicationUserRes.IsSuccess ? applicationUserRes.Entity.Id : 0;
-    //     if (marketplaceUser.ApplicationUserId != 0)
-    //     {
-    //         var marketplaceUserRes = await _userService.CreateAsync(marketplaceUser);
-    //
-    //         if (marketplaceUserRes.IsSuccess)
-    //         {
-    //             applicationUserRes.Entity.MarketplaceUserId = marketplaceUserRes.Entity.Id;
-    //             var res = await _userManager.UpdateAsync(applicationUserRes.Entity);
-    //             if (res.Succeeded)
-    //             {
-    //                 serviceRes.IsSuccess = true;
-    //             }
-    //             else
-    //             {
-    //                 serviceRes.IsSuccess = false;
-    //                 serviceRes.Message = res.Errors.FirstOrDefault().Description;
-    //             }
-    //         }
-    //         else
-    //         {
-    //             serviceRes.IsSuccess = false;
-    //             serviceRes.Message = marketplaceUserRes.Message;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         serviceRes.IsSuccess = false;
-    //         serviceRes.Message = applicationUserRes.Message;
-    //     }
-    //     return serviceRes;
-    // }
-    //
     private async Task<ServiceResponse> ConfigureRelationAsync(MarketplaceUser marketplaceUser, string email)
     {
         ServiceResponse serviceRes = new ServiceResponse();
@@ -240,8 +125,6 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         return serviceRes;
     }
     
-    
-    
     public async Task<ServiceResponse<TokenModel>> LoginAsync(LoginUserModel loginUserModel)
     {
         ApplicationUser? user = await _userManager.FindByEmailAsync(loginUserModel.Email);
@@ -264,6 +147,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
                     serviceRes.Entity = new TokenModel();
                     serviceRes.Entity.AccessToken = accessToken;
                     serviceRes.Entity.RefreshToken = user.RefreshToken;
+                    serviceRes.Entity.Role = IdentityRoles.User;
                     
                     return serviceRes;
                 }

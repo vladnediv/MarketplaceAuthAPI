@@ -1,4 +1,5 @@
 using System.Text;
+using BLL.Mapping;
 using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.RequestModel.HelperModel.UpdateModel;
 using BLL.Service;
@@ -104,11 +105,11 @@ internal class Program
                 ValidateAudience = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
+                ClockSkew = TimeSpan.Zero,
 
                 ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
                 ValidAudience = builder.Configuration["JwtConfig:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:Key"])),
-                
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:Key"]))
             };
         });
         
@@ -117,6 +118,10 @@ internal class Program
         
         
         //register services
+        
+        //Add AutoMapper
+        builder.Services.AddAutoMapper(typeof(MappingProfile));
+        
         //repository
         builder.Services.AddScoped<IGenericRepository<MarketplaceUser>, MarketplaceUserRepository>();
         builder.Services.AddScoped<IGenericRepository<MarketplaceShop>, MarketplaceShopRepository>();
