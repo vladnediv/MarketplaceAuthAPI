@@ -16,9 +16,10 @@ public class MarketplaceShopRepository : IGenericRepository<MarketplaceShop>
         _dbSet = dbContext.Set<MarketplaceShop>();
     }
 
-    public async Task Create(MarketplaceShop entity)
+    public async Task<MarketplaceShop> Create(MarketplaceShop entity)
     {
-        await _dbSet.AddAsync(entity);
+        var res = await _dbSet.AddAsync(entity);
+        return res.Entity;
     }
 
     public async Task<MarketplaceShop?> GetById(int id)
@@ -35,16 +36,6 @@ public class MarketplaceShopRepository : IGenericRepository<MarketplaceShop>
     public async Task Delete(MarketplaceShop entity)
     {
         _dbSet.Remove(entity);
-        await Task.CompletedTask;
-    }
-
-    public async Task Delete(int id)
-    {
-        MarketplaceShop? shop = await GetById(id);
-        if (shop != null)
-        {
-            _dbSet.Remove(shop);
-        }
         await Task.CompletedTask;
     }
 
