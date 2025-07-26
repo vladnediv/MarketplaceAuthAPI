@@ -1,0 +1,17 @@
+using BLL.Model.RequestModel;
+using BLL.Model.RequestModel.HelperModel;
+using BLL.Model.ServiceResponse;
+using Domain.Model;
+using Microsoft.AspNetCore.Identity;
+
+namespace BLL.Service.Interface;
+
+public interface IAuthService
+{
+    public Task<ServiceResponse<IdentityError>> ChangePassword(ApplicationUser currentUser, ChangePasswordModel changePasswordModel);
+    public Task<ServiceResponse<TokenModel>> RefreshTokenAsync(string refreshToken);
+    public Task<ServiceResponse<ApplicationUser>> GetApplicationUserByLoginAsync(string login);
+    public Task<ServiceResponse<ApplicationUser>> GetApplicationUserByRefreshToken(string token);
+    public Task<ServiceResponse<IdentityError>> DeleteUserByIdAsync(int id);
+    public Task<ServiceResponse<IdentityError>> AddToRoleAsync(ApplicationUser user, string roleName);
+}

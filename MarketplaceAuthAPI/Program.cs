@@ -1,4 +1,8 @@
 using System.Text;
+using BLL.Model.RequestModel.HelperModel;
+using BLL.Model.RequestModel.HelperModel.UpdateModel;
+using BLL.Service;
+using BLL.Service.Interface;
 using DAL.Context;
 using DAL.Repository;
 using DAL.Repository.Interface;
@@ -45,31 +49,10 @@ internal class Program
 
     private static void ConfigureServices(WebApplicationBuilder builder)
     {
-        //JWT and Identity Configuration
-        builder.Services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }
-        ).AddJwtBearer(options =>
-        {
-            //Only for development
-            options.RequireHttpsMetadata = false;
-            options.SaveToken = true;
-            options.TokenValidationParameters = new TokenValidationParameters()
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
+        //add identity
+        builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
-                ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
-                ValidAudience = builder.Configuration["JwtConfig:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:Key"])),
-                
-            };
-        });
+        
         builder.Services.AddAuthorization();
         
         //add swagger configuration for JWT
@@ -103,16 +86,52 @@ internal class Program
 
         });
         
+        //JWT and Identity Configuration
+        builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }
+        ).AddJwtBearer(options =>
+        {
+            //Only for development
+            options.RequireHttpsMetadata = false;
+            options.SaveToken = true;
+            options.TokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+
+                ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
+                ValidAudience = builder.Configuration["JwtConfig:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtConfig:Key"])),
+                
+            };
+        });
+        
         //add DbContext
         builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MarketplaceAuthDb")));
         
-        //add identity
-        builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
         
         //register services
         //repository
         builder.Services.AddScoped<IGenericRepository<MarketplaceUser>, MarketplaceUserRepository>();
         builder.Services.AddScoped<IGenericRepository<MarketplaceShop>, MarketplaceShopRepository>();
         builder.Services.AddScoped<IGenericRepository<MarketplaceAdmin>, MarketplaceAdminRepository>();
+        
+        //service
+        builder.Services.AddScoped<IJwtService, JwtService>();
+        builder.Services.AddScoped<IAuthService, AuthService>();
+        
+        builder.Services.AddScoped<IGenericService<MarketplaceUser>, MarketplaceUserService>();
+        builder.Services.AddScoped<IGenericService<MarketplaceShop>, MarketplaceShopService>();
+        builder.Services.AddScoped<IGenericService<MarketplaceAdmin>, MarketplaceAdminService>();
+        
+        builder.Services.AddScoped<MarketplaceUserAuthService>();
+        builder.Services.AddScoped<MarketplaceShopAuthService>();
+        builder.Services.AddScoped<MarketplaceAdminAuthService>();
     }
 }
