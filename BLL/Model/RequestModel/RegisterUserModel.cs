@@ -3,19 +3,13 @@ using BLL.Model.RequestModel.HelperModel;
 
 namespace BLL.Model.RequestModel;
 
-public class RegisterUserModel<T> where T : IRegisterModel
+public class RegisterUserModel<TUser, TShop>
+where TUser : IRegisterModel
+where TShop : IRegisterModel
 {
+    public GenericRegisterUserModel<TUser>? User { get; set; }
+    public GenericRegisterUserModel<TShop>? Shop { get; set; }
+    
     [Required]
-    public T UserModel { get; set; }
-    [Required]
-    [DataType(DataType.EmailAddress)]
-    [EmailAddress]
-    public string Email { get; set; }
-    [Required]
-    [DataType(DataType.Password)]
-    public string Password { get; set; }
-    [Required]
-    [DataType(DataType.Password)]
-    [Compare("Password")]
-    public string ConfirmPassword { get; set; }
+    public bool IsUser { get; set; }
 }

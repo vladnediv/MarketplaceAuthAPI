@@ -1,9 +1,8 @@
-using System.Security.Claims;
 using BLL.Model.RequestModel;
 using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.RequestModel.HelperModel.UpdateModel;
+using BLL.Model.ServiceResponse;
 using BLL.Service;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketplaceAuthAPI.Controllers;
@@ -22,34 +21,26 @@ public class AuthController : Controller
         _shopAuthService = shopAuthService;
         _adminAuthService = adminAuthService;
     }
-
-    [HttpPost("RegisterUser")]
-    public async Task<IActionResult> RegisterUserAsync([FromBody] RegisterUserModel<RegisterMarketplaceUser> model)
+    
+    [HttpPost("Register")]
+    public async Task<IActionResult> RegisterAsync([FromBody] RegisterUserModel<RegisterMarketplaceUser, RegisterMarketplaceShop> model)
     {
-        var result = await _userAuthService.RegisterAsync(model);
+        ServiceResponse<IdentityError> result;
+        if (model.IsUser)
+        {
+            result = await _userAuthService.RegisterAsync(model.User);
+        }
+        else
+        {
+            result = await _shopAuthService.RegisterAsync(model.Shop);
+        }
+
         if (result.IsSuccess)
+        {
             return Ok(result);
+        }
         return BadRequest(result);
     }
-
-    [HttpPost("RegisterShop")]
-    public async Task<IActionResult> RegisterShopAsync([FromBody] RegisterUserModel<RegisterMarketplaceShop> model)
-    {
-        var result = await _shopAuthService.RegisterAsync(model);
-        if (result.IsSuccess)
-            return Ok(result);
-        return BadRequest(result);
-    }
-
-    [HttpPost("RegisterAdmin")]
-    public async Task<IActionResult> RegisterAdminAsync([FromBody] RegisterUserModel<RegisterMarketplaceAdmin> model)
-    {
-        var result = await _adminAuthService.RegisterAsync(model);
-        if (result.IsSuccess)
-            return Ok(result);
-        return BadRequest(result);
-    }
-
     
     [HttpPost("Login")]
     public async Task<IActionResult> LoginAsync([FromBody] LoginUserModel model)
@@ -71,4 +62,6 @@ public class AuthController : Controller
         }
         return Ok(userResult);
     }
+    
+    
 }

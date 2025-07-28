@@ -26,36 +26,37 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         _userService = userService;
     }
     
-    public async Task<ServiceResponse<IdentityError>> RegisterAsync(RegisterUserModel<RegisterMarketplaceUser> registerUserModel)
+    public async Task<ServiceResponse<IdentityError>> RegisterAsync(GenericRegisterUserModel<RegisterMarketplaceUser> genericRegisterUserModel)
     {
         var serviceRes = new ServiceResponse<IdentityError>();
 
         var applicationUser = new ApplicationUser
         {
-            PhoneNumber = registerUserModel.UserModel.PhoneNumber,
-            Email = registerUserModel.Email,
-            UserName = registerUserModel.Email
+            PhoneNumber = genericRegisterUserModel.UserModel.PhoneNumber,
+            Email = genericRegisterUserModel.Email,
+            UserName = genericRegisterUserModel.Email
         };
 
         var marketplaceUser = new MarketplaceUser
         {
-            FirstName = registerUserModel.UserModel.FirstName,
-            LastName = registerUserModel.UserModel.LastName
+            FirstName = genericRegisterUserModel.UserModel.FirstName,
+            LastName = genericRegisterUserModel.UserModel.LastName
         };
 
-        IdentityResult createRes = await _userManager.CreateAsync(applicationUser, registerUserModel.Password);
+        IdentityResult createRes = await _userManager.CreateAsync(applicationUser, genericRegisterUserModel.Password);
         if (!createRes.Succeeded)
         {
             serviceRes.IsSuccess = false;
             serviceRes.Entities = createRes.Errors.ToList();
+            serviceRes.Message = createRes.Errors.FirstOrDefault().Description;
             return serviceRes;
         }
 
-        var user = await _userManager.FindByEmailAsync(registerUserModel.Email);
+        var user = await _userManager.FindByEmailAsync(genericRegisterUserModel.Email);
         if (user == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User could not be found after creation.";
+            serviceRes.Message = ServiceResponseMessages.CreateFailed + " " + ServiceResponseMessages.UnexpectedError;
             return serviceRes;
         }
 
@@ -67,6 +68,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
             await _userManager.DeleteAsync(user);
             serviceRes.IsSuccess = false;
             serviceRes.Entities = roleRes.Entities;
+            serviceRes.Message = roleRes.Message;
             return serviceRes;
         }
 
@@ -93,7 +95,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         if (!applicationUserRes.IsSuccess || applicationUserRes.Entity == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = applicationUserRes.Message ?? "Application user not found.";
+            serviceRes.Message = applicationUserRes.Message;
             return serviceRes;
         }
 
@@ -106,7 +108,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         if (!marketplaceUserRes.IsSuccess || marketplaceUserRes.Entity == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = marketplaceUserRes.Message ?? "Failed to create MarketplaceUser.";
+            serviceRes.Message = marketplaceUserRes.Message;
             return serviceRes;
         }
 
@@ -117,7 +119,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         if (!updateRes.Succeeded)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = updateRes.Errors.FirstOrDefault()?.Description ?? "Failed to update ApplicationUser.";
+            serviceRes.Message = updateRes.Errors.FirstOrDefault().Description;
             return serviceRes;
         }
         
@@ -136,6 +138,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
             if (!user.MarketplaceUserId.HasValue)
             {
                 serviceRes.IsSuccess = false;
+                serviceRes.Message = ServiceResponseMessages.UnexpectedError;
                 return serviceRes;
             }
             var isValid = await _userManager.CheckPasswordAsync(user, loginUserModel.Password);
@@ -164,13 +167,13 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
             else
             {
                 serviceRes.IsSuccess = false;
-                serviceRes.Message = "Invalid username or password.";
+                serviceRes.Message = ServiceResponseMessages.InvalidPassword;
                 
                 return serviceRes;
             }
         }
         serviceRes.IsSuccess = false;
-        serviceRes.Message = "Invalid username or password.";
+        serviceRes.Message = ServiceResponseMessages.InvalidLogin;
         
         return serviceRes;
     }
@@ -184,7 +187,7 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         if (entity.Entity == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User could not be found.";
+            serviceRes.Message = entity.Message;
             return serviceRes;
         }
         
@@ -197,6 +200,34 @@ public class MarketplaceUserAuthService : AuthService, IUserAuthService<Register
         {
             serviceRes.IsSuccess = false;
             serviceRes.Message = res.Message;
+            return serviceRes;
+        }
+        
+        serviceRes.IsSuccess = true;
+        return serviceRes;
+    }
+    
+    public async Task<ServiceResponse> DeleteUserAsync(int marketplaceUserId)
+    {
+        ServiceResponse serviceRes = new ServiceResponse();
+        
+        var userRes = await _userService.GetAsync(marketplaceUserId);
+
+        if (!userRes.IsSuccess)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = userRes.Message;
+            
+            return serviceRes;
+        }
+
+        var deleteRes = await DeleteApplicationUserByIdAsync(userRes.Entity.ApplicationUserId);
+
+        if (!deleteRes.IsSuccess)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = deleteRes.Message;
+            
             return serviceRes;
         }
         

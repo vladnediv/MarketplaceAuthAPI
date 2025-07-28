@@ -1,4 +1,5 @@
 using BLL.Model.RequestModel;
+using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.ServiceResponse;
 using BLL.Service.Interface;
 using Domain.Model;
@@ -50,7 +51,7 @@ public class AuthService : IAuthService
             if (res.Entity.RefreshToken != refreshToken)
             {
                 serviceRes.IsSuccess = false;
-                serviceRes.Message = "Invalid refresh token!";
+                serviceRes.Message = ServiceResponseMessages.InvalidRefreshToken;
             }
             else
             {
@@ -90,7 +91,7 @@ public class AuthService : IAuthService
         if (user == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         else
         {
@@ -108,7 +109,7 @@ public class AuthService : IAuthService
         if (user == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         else
         {
@@ -118,7 +119,7 @@ public class AuthService : IAuthService
         return serviceRes;
     }
 
-    public async Task<ServiceResponse<IdentityError>> DeleteUserByIdAsync(int id)
+    public async Task<ServiceResponse<IdentityError>> DeleteApplicationUserByIdAsync(int id)
     {
         ApplicationUser? user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
         
@@ -140,7 +141,7 @@ public class AuthService : IAuthService
         else
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         return serviceRes;
     }

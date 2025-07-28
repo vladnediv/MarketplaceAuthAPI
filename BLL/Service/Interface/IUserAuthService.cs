@@ -9,7 +9,8 @@ public interface IUserAuthService<TRegisterModel, TUpdateModel>
     where TRegisterModel : IRegisterModel
     where TUpdateModel : IUpdateUser
 {
-    public Task<ServiceResponse<IdentityError>> RegisterAsync(RegisterUserModel<TRegisterModel> registerUserModel);
+    public Task<ServiceResponse<IdentityError>> RegisterAsync(GenericRegisterUserModel<TRegisterModel> genericRegisterUserModel);
     public Task<ServiceResponse<TokenModel>> LoginAsync(LoginUserModel loginUserModel);
     public Task<ServiceResponse<IdentityError>> UpdateUserAsync(UpdateUserModel<TUpdateModel> model, int userId);
+    public Task<ServiceResponse> DeleteUserAsync(int userId);
 }

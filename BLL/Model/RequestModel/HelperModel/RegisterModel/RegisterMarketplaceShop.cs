@@ -6,10 +6,11 @@ public class RegisterMarketplaceShop : IRegisterModel
 {
     [Required]
     public string ShopName { get; set; }
-    [Required]
-    public string LogoUrl { get; set; }
-    [Required]
-    public AddressDTO Address { get; set; }
+
+    public string? LogoUrl { get; set; }
+    
+    public List<AddressDTO>? Addresses { get; set; }
+    
     [Required]
     public string PhoneNumber { get; set; }
 }

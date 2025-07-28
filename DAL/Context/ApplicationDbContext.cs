@@ -48,9 +48,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,  Identity
         
         //Address -> MarketplaceShop : One-To-One relation
         builder.Entity<MarketplaceShop>()
-            .HasOne(x => x.Address)
+            .HasMany(x => x.Addresses)
             .WithOne(x => x.Shop)
-            .HasForeignKey<Address>(x => x.ShopId)
+            .HasForeignKey(x => x.ShopId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

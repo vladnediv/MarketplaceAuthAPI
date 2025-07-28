@@ -12,6 +12,6 @@ public interface IAuthService
     public Task<ServiceResponse<TokenModel>> RefreshTokenAsync(string refreshToken);
     public Task<ServiceResponse<ApplicationUser>> GetApplicationUserByLoginAsync(string login);
     public Task<ServiceResponse<ApplicationUser>> GetApplicationUserByRefreshToken(string token);
-    public Task<ServiceResponse<IdentityError>> DeleteUserByIdAsync(int id);
+    public Task<ServiceResponse<IdentityError>> DeleteApplicationUserByIdAsync(int id);
     public Task<ServiceResponse<IdentityError>> AddToRoleAsync(ApplicationUser user, string roleName);
 }

@@ -9,6 +9,5 @@ public class MarketplaceShop
     
     public string? LogoUrl { get; set; }
     public string Name { get; set; }
-    public Address? Address { get; set; }
-    IEnumerable<int>? ProductIds { get; set; }
+    public IEnumerable<Address>? Addresses { get; set; }
 }
