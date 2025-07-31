@@ -9,27 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/GenericRegisterUserModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceAdminService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceAdminService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceShopService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceShopService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceUserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Context/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Context/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Migration/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Migration/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Model/MarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/MarketplaceShop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Model/MarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/MarketplaceUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,8 +86,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f17048421fa2e8f386a171d7437529fc3275b0c96554799469214782743b549d/ObjectDisposedException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f25b251c574c654647ef9df53085ff984a892fcedde31be83f4a133cf56518/ConstantExpression.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f3bb181571345d2f6a6df464bfc2bffea4391eadde674de657dad793aac7d9/RoleManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f71b67a2195f9edac51c3c82e40fccd25f957ac185e7c8a684189f8b5c1e387/String.Comparison.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f8fdff6920a6a186765c356799993ad6972eb8285ca31ea98d157ac4b3d16/DateTime.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;478efc5d618325b07ee9f1d3b46c5fe6d0569efc&quot; value=&quot;###&amp;#10;POST http://localhost:5232/api/User/Update&quot; /&gt;&#10;  &lt;entry key=&quot;57725ff53fcf6eba6010f965792d4be1c2895833&quot; value=&quot;###&amp;#10;GET http://vladne-001-site1.anytempurl.com/api/Auth/test&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -117,6 +110,12 @@
     ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Debug",
     ".NET Launch Settings Profile.Unnamed.executor": "Run",
     ".NET Project.Unnamed.executor": "Run",
+    "HTTP Request.All in MarketplaceAuthAPI-endpoints.executor": "Run",
+    "HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor": "Run",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor": "Run",
+    "Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor": "Run",
+    "Publish to folder.Publish MarketplaceAuthAPI to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "create-controllers",
@@ -128,7 +127,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Launch Settings Profile.MarketplaceAuthAPI">
+    <configuration name="Publish MarketplaceAuthAPI to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/../Published" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/MarketplaceAuthAPI/bin/Debug/net8.0/MarketplaceAuthAPI" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -153,6 +156,23 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="Publish MarketplaceAuthAPI to custom server (1)" type="DotNetPublishAndUpload" factoryName="Publish to custom server">
+      <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" server_id="125f972c-fba2-4996-82ec-5c948def6eeb" serverName="MarketplaceAuthAPI" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Publish MarketplaceAuthAPI to custom server" type="DotNetPublishAndUpload" factoryName="Publish to custom server">
+      <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" server_id="125f972c-fba2-4996-82ec-5c948def6eeb" serverName="MarketplaceAuthAPI" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All in MarketplaceAuthAPI-endpoints" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/MarketplaceAuthAPI-endpoints.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="MarketplaceAuthAPI-endpoints | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/MarketplaceAuthAPI-endpoints.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="MarketplaceAuthAPI" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
@@ -168,6 +188,13 @@
         <option name="Build" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.MarketplaceAuthAPI-endpoints | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.All in MarketplaceAuthAPI-endpoints" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -177,7 +204,8 @@
       <option name="presentableId" value="Default" />
       <updated>1753186751377</updated>
       <workItem from="1753186752453" duration="7948000" />
-      <workItem from="1753274831949" duration="70105000" />
+      <workItem from="1753274831949" duration="73314000" />
+      <workItem from="1753704528670" duration="8260000" />
     </task>
     <servers />
   </component>
@@ -186,4 +214,47 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>70</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'LoginAsync'">
+            <startOffsets>
+              <option value="2445" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2478" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>81</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshTokenAsync'">
+            <startOffsets>
+              <option value="2745" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2746" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
 </project>

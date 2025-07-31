@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using BLL.Model.RequestModel;
 using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.ServiceResponse;
@@ -48,7 +49,7 @@ public class AuthService : IAuthService
         
         if (res.IsSuccess)
         {
-            if (res.Entity.RefreshToken != refreshToken)
+            if (res.Entity.RefreshToken != refreshToken || res.Entity.RefreshTokenExpireTime < DateTime.UtcNow)
             {
                 serviceRes.IsSuccess = false;
                 serviceRes.Message = ServiceResponseMessages.InvalidRefreshToken;
@@ -69,18 +70,32 @@ public class AuthService : IAuthService
                 }
                 else
                 {
+                    
                     serviceRes.IsSuccess = true;
+                    serviceRes.Entity = new TokenModel();
                     serviceRes.Entity.RefreshToken = newRefreshToken;
                     serviceRes.Entity.AccessToken = newAccessToken;
+                    serviceRes.Entity.Role = GetUserRole(res.Entity);
                 }
             }
         }
         else
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         return serviceRes;
+    }
+
+    public string GetUserRole(ApplicationUser user)
+    {
+        string role = "";
+        role = user.MarketplaceUserId.HasValue ? IdentityRoles.User : 
+            user.MarketplaceShopId.HasValue ? IdentityRoles.Shop :
+            user.MarketplaceAdminId.HasValue ? IdentityRoles.Admin :
+            IdentityRoles.User;
+        
+        return role;
     }
     public async Task<ServiceResponse<ApplicationUser>> GetApplicationUserByLoginAsync(string login)
     {
@@ -178,5 +193,10 @@ public class AuthService : IAuthService
                 Entities = addRes.Errors.ToList()
             };
         }
+    }
+
+    public int GetUserIdFromClaims(ClaimsPrincipal user)
+    {
+        return int.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier));
     }
 }

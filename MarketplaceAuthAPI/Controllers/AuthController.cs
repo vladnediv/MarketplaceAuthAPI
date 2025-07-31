@@ -48,13 +48,27 @@ public class AuthController : Controller
         var userResult = await _userAuthService.LoginAsync(model);
         if (!userResult.IsSuccess)
         {
+
+            if (userResult.Message == ServiceResponseMessages.InvalidLogin ||
+                userResult.Message == ServiceResponseMessages.InvalidPassword)
+            {
+                return Unauthorized(userResult);
+            }
+            
             var shopResult = await _shopAuthService.LoginAsync(model);
             if (!shopResult.IsSuccess)
             {
+                
+                if (shopResult.Message == ServiceResponseMessages.InvalidLogin ||
+                    shopResult.Message == ServiceResponseMessages.InvalidPassword)
+                {
+                    return Unauthorized(shopResult);
+                }
+                
                 var adminResult = await _adminAuthService.LoginAsync(model);
                 if (!adminResult.IsSuccess)
                 {
-                    return Unauthorized();
+                    return Unauthorized(adminResult);
                 }
                 return Ok(adminResult);
             }
@@ -62,6 +76,15 @@ public class AuthController : Controller
         }
         return Ok(userResult);
     }
-    
-    
+
+    [HttpPost("RefreshToken")]
+    public async Task<IActionResult> RefreshTokenAsync(string refreshToken)
+    {
+        var res = await _userAuthService.RefreshTokenAsync(refreshToken);
+        if (res.IsSuccess)
+        {
+            return Ok(res);
+        }
+        return BadRequest(res);
+    }
 }
