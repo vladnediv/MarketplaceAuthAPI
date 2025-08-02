@@ -23,7 +23,7 @@ public class AuthController : Controller
     }
     
     [HttpPost("Register")]
-    public async Task<IActionResult> RegisterAsync([FromBody] RegisterUserModel<RegisterMarketplaceUser, RegisterMarketplaceShop> model)
+    public async Task<IActionResult> RegisterAsync([FromForm] RegisterUserModel<RegisterMarketplaceUser, RegisterMarketplaceShop> model)
     {
         ServiceResponse<IdentityError> result;
         if (model.IsUser)
