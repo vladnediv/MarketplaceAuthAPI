@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Debug",
+    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Run",
     ".NET Launch Settings Profile.Unnamed.executor": "Run",
     ".NET Project.Unnamed.executor": "Run",
     "HTTP Request.All in MarketplaceAuthAPI-endpoints.executor": "Run",
@@ -211,7 +210,7 @@
       <workItem from="1753186752453" duration="7948000" />
       <workItem from="1753274831949" duration="73314000" />
       <workItem from="1753704528670" duration="10422000" />
-      <workItem from="1753972310661" duration="9639000" />
+      <workItem from="1753972310661" duration="10093000" />
     </task>
     <servers />
   </component>
