@@ -60,7 +60,7 @@ public class AuthService : IAuthService
                 string newRefreshToken = await _jwtService.GenerateRefreshTokenAsync();
                 
                 res.Entity.RefreshToken = newRefreshToken;
-                res.Entity.RefreshTokenExpireTime = DateTime.UtcNow.AddDays(7);
+                res.Entity.RefreshTokenExpireTime = DateTime.UtcNow.AddMinutes(2);
                 
                 IdentityResult identityResult = await _userManager.UpdateAsync(res.Entity);
                 if (!identityResult.Succeeded)
