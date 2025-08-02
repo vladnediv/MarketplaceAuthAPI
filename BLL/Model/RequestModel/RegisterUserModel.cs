@@ -7,5 +7,5 @@ public class RegisterUserModel<TRegisterModel>
 where TRegisterModel : IRegisterModel
 {
     [Required]
-    public GenericRegisterUserModel<TRegisterModel>? RegisterModel { get; set; }
+    public GenericRegisterUserModel<TRegisterModel> RegisterModel { get; set; }
 }
