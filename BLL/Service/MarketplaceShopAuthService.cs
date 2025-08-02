@@ -46,7 +46,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
             Name = genericRegisterUserModel.UserModel.ShopName,
             LogoUrl = genericRegisterUserModel.UserModel.LogoUrl
         };
-        if (genericRegisterUserModel.UserModel.Addresses.FirstOrDefault().CityName != "string")
+        if (genericRegisterUserModel.UserModel.Addresses.FirstOrDefault().CityName != "" )
         {
             marketplaceShop.Addresses = genericRegisterUserModel.UserModel.Addresses
                 .Select(x => _mapper.Map<Address>(x)).ToList();

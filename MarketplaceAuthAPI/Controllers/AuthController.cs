@@ -22,18 +22,22 @@ public class AuthController : Controller
         _adminAuthService = adminAuthService;
     }
     
-    [HttpPost("Register")]
-    public async Task<IActionResult> RegisterAsync([FromForm] RegisterUserModel<RegisterMarketplaceUser, RegisterMarketplaceShop> model)
+    [HttpPost("RegisterUser")]
+    public async Task<IActionResult> RegisterUserAsync([FromBody] RegisterUserModel<RegisterMarketplaceUser> model)
     {
-        ServiceResponse<IdentityError> result;
-        if (model.IsUser)
+        ServiceResponse<IdentityError> result = await _userAuthService.RegisterAsync(model.RegisterModel);
+
+        if (result.IsSuccess)
         {
-            result = await _userAuthService.RegisterAsync(model.User);
+            return Ok(result);
         }
-        else
-        {
-            result = await _shopAuthService.RegisterAsync(model.Shop);
-        }
+        return BadRequest(result);
+    }
+    
+    [HttpPost("RegisterShop")]
+    public async Task<IActionResult> RegisterShopAsync([FromBody] RegisterUserModel<RegisterMarketplaceShop> model)
+    {
+        ServiceResponse<IdentityError> result = await _shopAuthService.RegisterAsync(model.RegisterModel);
 
         if (result.IsSuccess)
         {

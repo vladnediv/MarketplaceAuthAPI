@@ -3,13 +3,9 @@ using BLL.Model.RequestModel.HelperModel;
 
 namespace BLL.Model.RequestModel;
 
-public class RegisterUserModel<TUser, TShop>
-where TUser : IRegisterModel
-where TShop : IRegisterModel
+public class RegisterUserModel<TRegisterModel>
+where TRegisterModel : IRegisterModel
 {
-    public GenericRegisterUserModel<TUser>? User { get; set; }
-    public GenericRegisterUserModel<TShop>? Shop { get; set; }
-    
     [Required]
-    public bool IsUser { get; set; }
+    public GenericRegisterUserModel<TRegisterModel>? RegisterModel { get; set; }
 }
