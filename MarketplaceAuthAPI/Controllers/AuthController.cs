@@ -87,4 +87,4 @@ public class AuthController : Controller
         }
         return BadRequest(res);
     }
-}
+}   

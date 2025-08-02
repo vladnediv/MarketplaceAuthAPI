@@ -6,7 +6,7 @@ public static class ServiceResponseMessages
     public const string UserNotFound = "User not found!";
     public static string UserNotFoundById(int id)
     {
-        return $"User with id [{id}] not found!";
+        return $"User with id [{id}] could not be found!";
     }
     
     public const string InvalidLogin = "Invalid login!";

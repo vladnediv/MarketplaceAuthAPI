@@ -1,3 +1,5 @@
+using AutoMapper;
+using BLL.Model.DTO;
 using BLL.Model.RequestModel;
 using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.RequestModel.HelperModel.UpdateModel;
@@ -9,22 +11,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BLL.Service;
 
-public class MarketplaceAdminAuthService : AuthService, IUserAuthService<RegisterMarketplaceAdmin, UpdateMarketplaceAdmin>
+public class MarketplaceAdminAuthService : AuthService, IAdminService
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IJwtService _jwtService;
     private readonly IGenericService<MarketplaceAdmin> _adminService;
+    private readonly IMapper _mapper;
 
     public MarketplaceAdminAuthService(
         UserManager<ApplicationUser> userManager,
         RoleManager<IdentityRole<int>> roleManager,
         IJwtService jwtService,
-        IGenericService<MarketplaceAdmin> adminService
+        IGenericService<MarketplaceAdmin> adminService,
+        IMapper mapper
     ) : base(userManager, roleManager, jwtService)
     {
         _userManager = userManager;
         _jwtService = jwtService;
         _adminService = adminService;
+        _mapper = mapper;
     }
 
     public async Task<ServiceResponse<IdentityError>> RegisterAsync(GenericRegisterUserModel<RegisterMarketplaceAdmin> genericRegisterUserModel)
@@ -223,5 +228,48 @@ public class MarketplaceAdminAuthService : AuthService, IUserAuthService<Registe
         
         serviceRes.IsSuccess = true;
         return serviceRes;
+    }
+
+    public async Task<ServiceResponse<MarketplaceShopDTO>> GetShopByIdAsync(int shopId)
+    {
+        ServiceResponse<MarketplaceShopDTO> serviceRes = new ServiceResponse<MarketplaceShopDTO>();
+        
+        var shop = await _userManager.Users.FirstOrDefaultAsync(x => x.MarketplaceShopId == shopId);
+        if (shop == null)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.UserNotFoundById(shopId);
+        }
+        else
+        {
+            serviceRes.IsSuccess = true;
+            serviceRes.Entity = _mapper.Map<MarketplaceShopDTO>(shop.MarketplaceShop);
+        }
+        return serviceRes;
+    }
+
+    public async Task<ServiceResponse<MarketplaceShopDTO>> GetShopsAsync()
+    {
+        ServiceResponse<MarketplaceShopDTO> serviceRes = new ServiceResponse<MarketplaceShopDTO>();
+        
+        var shops = await _userManager.Users.Where(x => x.MarketplaceShopId != null).ToListAsync();
+
+        if (shops == null)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.UnexpectedError;
+        }
+        else
+        {
+            serviceRes.IsSuccess = true;
+            
+        }
+
+        return new  ServiceResponse<MarketplaceShopDTO>();
+    }
+
+    public async Task<ServiceResponse<MarketplaceUserDTO>> GetUserAsync(int userId)
+    {
+        throw new NotImplementedException();
     }
 }
