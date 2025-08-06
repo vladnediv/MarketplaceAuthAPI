@@ -17,4 +17,7 @@ public static class ServiceResponseMessages
     public const string DeleteFailed = "Failed to delete the entity.";
     
     public const string UnexpectedError = "An unexpected error occurred.";
+    
+    public static string ArgumentIsNull(string variable, string entityType) => $"The argument [{variable}] of type [{entityType}] is null.";
+
 }

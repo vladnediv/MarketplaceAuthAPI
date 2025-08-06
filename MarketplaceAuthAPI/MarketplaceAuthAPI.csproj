@@ -22,4 +22,8 @@
     <ProjectReference Include="..\BLL\BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\Web Deploy To Local IIS.pubxml" />
+  </ItemGroup>
+
 </Project>

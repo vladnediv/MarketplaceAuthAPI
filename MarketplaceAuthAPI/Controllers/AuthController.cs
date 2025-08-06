@@ -2,6 +2,7 @@ using BLL.Model.RequestModel;
 using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.ServiceResponse;
 using BLL.Service;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,13 +16,20 @@ public class AuthController : Controller
     private readonly MarketplaceShopAuthService _shopAuthService;
     private readonly MarketplaceAdminAuthService _adminAuthService;
 
-    public AuthController(MarketplaceUserAuthService userAuthService,  MarketplaceShopAuthService shopAuthService, MarketplaceAdminAuthService adminAuthService)
+    public AuthController(MarketplaceUserAuthService userAuthService, MarketplaceShopAuthService shopAuthService,
+        MarketplaceAdminAuthService adminAuthService)
     {
         _userAuthService = userAuthService;
         _shopAuthService = shopAuthService;
         _adminAuthService = adminAuthService;
     }
-    
+
+    [HttpGet("TestConnection")]
+    public async Task<IActionResult> TestConnection()
+    {
+        return Ok("Connection successful");
+    }
+
     [HttpPost("RegisterUser")]
     public async Task<IActionResult> RegisterUserAsync([FromBody] RegisterUserModel<RegisterMarketplaceUser> model)
     {
@@ -31,9 +39,10 @@ public class AuthController : Controller
         {
             return Ok(result);
         }
+
         return BadRequest(result);
     }
-    
+
     [HttpPost("RegisterShop")]
     public async Task<IActionResult> RegisterShopAsync([FromBody] RegisterUserModel<RegisterMarketplaceShop> model)
     {
@@ -43,9 +52,10 @@ public class AuthController : Controller
         {
             return Ok(result);
         }
+
         return BadRequest(result);
     }
-    
+
     [HttpPost("Login")]
     public async Task<IActionResult> LoginAsync([FromBody] LoginUserModel model)
     {
@@ -58,26 +68,29 @@ public class AuthController : Controller
             {
                 return Unauthorized(userResult);
             }
-            
+
             var shopResult = await _shopAuthService.LoginAsync(model);
             if (!shopResult.IsSuccess)
             {
-                
+
                 if (shopResult.Message == ServiceResponseMessages.InvalidLogin ||
                     shopResult.Message == ServiceResponseMessages.InvalidPassword)
                 {
                     return Unauthorized(shopResult);
                 }
-                
+
                 var adminResult = await _adminAuthService.LoginAsync(model);
                 if (!adminResult.IsSuccess)
                 {
                     return Unauthorized(adminResult);
                 }
+
                 return Ok(adminResult);
             }
+
             return Ok(shopResult);
         }
+
         return Ok(userResult);
     }
 
@@ -89,6 +102,20 @@ public class AuthController : Controller
         {
             return Ok(res);
         }
+
         return BadRequest(res);
     }
-}   
+
+    [HttpPost("Logout")]
+    public async Task<IActionResult> LogoutAsync()
+    {
+        var res = await _userAuthService.LogoutUserByClaimsAsync(User);
+
+        if (res.IsSuccess)
+        {
+            return Ok(res);
+        }
+        return BadRequest(res);
+    }
+
+}

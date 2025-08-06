@@ -11,8 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +49,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/GenericRegisterUserModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/13fea414bb3c4e6f9337b3ef735063552b708/e9/a2433d09/UserManager`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c79eec5e0d74a12bb667514c37c99a814648/27/7636076b/SignInManager`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cabf1591cccc4d0da46b6c1185146d4c32400/72/080d8d46/CompareAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1750dff95ce6347f7797ec095c5c17196efe67de17ff2666b9992265f0b6/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
@@ -135,7 +138,7 @@
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MarketplaceAuthAPI">
     <configuration name="Publish MarketplaceAuthAPI to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/../Published" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
+      <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/../AuthApiPublished" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="DotNetProject" factoryName=".NET Project">
@@ -212,7 +215,8 @@
       <workItem from="1753186752453" duration="7948000" />
       <workItem from="1753274831949" duration="73314000" />
       <workItem from="1753704528670" duration="10422000" />
-      <workItem from="1753972310661" duration="10776000" />
+      <workItem from="1753972310661" duration="17285000" />
+      <workItem from="1754320507302" duration="5773000" />
     </task>
     <servers />
   </component>
@@ -231,37 +235,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
-          <line>27</line>
-          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RegisterUserAsync'">
-            <startOffsets>
-              <option value="998" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1096" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
-          <line>39</line>
-          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RegisterShopAsync'">
-            <startOffsets>
-              <option value="1386" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1484" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

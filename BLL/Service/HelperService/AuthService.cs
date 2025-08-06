@@ -197,6 +197,58 @@ public class AuthService : IAuthService
 
     public int GetUserIdFromClaims(ClaimsPrincipal user)
     {
-        return int.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier));
+        var id = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0";
+        return int.Parse(id);
+    }
+
+    public async Task<ServiceResponse<IdentityError>> LogoutUserByClaimsAsync(ClaimsPrincipal user)
+    {
+        ServiceResponse<IdentityError> serviceRes = new ServiceResponse<IdentityError>();
+        
+        if (user == null)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.ArgumentIsNull(nameof(user), nameof(ClaimsPrincipal));
+            
+            return serviceRes;
+        }
+        
+        int userId = GetUserIdFromClaims(user);
+
+        if (userId == 0)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
+            
+            return serviceRes;
+        }
+        
+        var applicationUser = await _userManager.FindByIdAsync(userId.ToString());
+
+        if (applicationUser == null)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.UserNotFoundById(userId);
+            
+            return serviceRes;
+        }
+        
+        applicationUser.RefreshToken = null;
+        applicationUser.RefreshTokenExpireTime = null;
+        
+        var updateRes = await _userManager.UpdateAsync(applicationUser);
+
+        if (!updateRes.Succeeded)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Entities = updateRes.Errors.ToList();
+            serviceRes.Message = updateRes.Errors.First().Description;
+            
+            return serviceRes;
+        }
+        
+        serviceRes.IsSuccess = true;
+        
+        return serviceRes;
     }
 }
