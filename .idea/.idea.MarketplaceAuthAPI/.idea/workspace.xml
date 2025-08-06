@@ -111,28 +111,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Run",
-    ".NET Launch Settings Profile.Unnamed.executor": "Run",
-    ".NET Project.Unnamed.executor": "Run",
-    "HTTP Request.All in MarketplaceAuthAPI-endpoints.executor": "Run",
-    "HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor": "Run",
-    "Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor": "Run",
-    "Publish to folder.Publish MarketplaceAuthAPI to folder.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "create-controllers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.MarketplaceAuthAPI.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in MarketplaceAuthAPI-endpoints.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor&quot;: &quot;Run&quot;,
+    &quot;Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor&quot;: &quot;Run&quot;,
+    &quot;Publish to folder.Publish MarketplaceAuthAPI to folder.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;create-controllers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MarketplaceAuthAPI">
     <configuration name="Publish MarketplaceAuthAPI to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/../Published" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
