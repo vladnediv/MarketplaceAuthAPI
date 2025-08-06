@@ -1,3 +1,4 @@
+using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.ServiceResponse;
 using BLL.Service.Interface;
 using DAL.Repository;
@@ -25,6 +26,7 @@ public class MarketplaceShopService : IGenericService<MarketplaceShop>
             if (entity is null)
             {
                 response.IsSuccess = false;
+                response.Message = ServiceResponseMessages.UserNotFoundById(id);
             }
             else
             {

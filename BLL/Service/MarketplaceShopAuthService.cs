@@ -30,37 +30,42 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
         _mapper = mapper;
     }
 
-    public async Task<ServiceResponse<IdentityError>> RegisterAsync(RegisterUserModel<RegisterMarketplaceShop> registerUserModel)
+    public async Task<ServiceResponse<IdentityError>> RegisterAsync(GenericRegisterUserModel<RegisterMarketplaceShop> genericRegisterUserModel)
     {
         var serviceRes = new ServiceResponse<IdentityError>();
 
         var applicationUser = new ApplicationUser
         {
-            PhoneNumber = registerUserModel.UserModel.PhoneNumber,
-            Email = registerUserModel.Email,
-            UserName = registerUserModel.Email
+            PhoneNumber = genericRegisterUserModel.UserModel.PhoneNumber,
+            Email = genericRegisterUserModel.Email,
+            UserName = genericRegisterUserModel.Email
         };
 
         var marketplaceShop = new MarketplaceShop
         {
-            Name = registerUserModel.UserModel.ShopName,
-            LogoUrl = registerUserModel.UserModel.LogoUrl,
-            Address = _mapper.Map<Address>(registerUserModel.UserModel.Address)
+            Name = genericRegisterUserModel.UserModel.ShopName,
+            LogoUrl = genericRegisterUserModel.UserModel.LogoUrl
         };
+        if (genericRegisterUserModel.UserModel.Addresses.FirstOrDefault().CityName != "" )
+        {
+            marketplaceShop.Addresses = genericRegisterUserModel.UserModel.Addresses
+                .Select(x => _mapper.Map<Address>(x)).ToList();
+        }
 
-        IdentityResult createRes = await _userManager.CreateAsync(applicationUser, registerUserModel.Password);
+        IdentityResult createRes = await _userManager.CreateAsync(applicationUser, genericRegisterUserModel.Password);
         if (!createRes.Succeeded)
         {
             serviceRes.IsSuccess = false;
             serviceRes.Entities = createRes.Errors.ToList();
+            serviceRes.Message = createRes.Errors.FirstOrDefault().Description;
             return serviceRes;
         }
 
-        var user = await _userManager.FindByEmailAsync(registerUserModel.Email);
+        var user = await _userManager.FindByEmailAsync(genericRegisterUserModel.Email);
         if (user == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User could not be found after creation.";
+            serviceRes.Message = ServiceResponseMessages.CreateFailed + " " + ServiceResponseMessages.UnexpectedError;
             return serviceRes;
         }
 
@@ -70,6 +75,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
             await _userManager.DeleteAsync(user);
             serviceRes.IsSuccess = false;
             serviceRes.Entities = roleRes.Entities;
+            serviceRes.Message = roleRes.Message;
             return serviceRes;
         }
 
@@ -95,7 +101,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
         if (!applicationUserRes.IsSuccess || applicationUserRes.Entity == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = applicationUserRes.Message ?? "Application user not found.";
+            serviceRes.Message = applicationUserRes.Message;
             return serviceRes;
         }
 
@@ -106,7 +112,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
         if (!marketplaceShopRes.IsSuccess || marketplaceShopRes.Entity == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = marketplaceShopRes.Message ?? "Failed to create MarketplaceShop.";
+            serviceRes.Message = marketplaceShopRes.Message;
             return serviceRes;
         }
 
@@ -116,7 +122,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
         if (!updateRes.Succeeded)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = updateRes.Errors.FirstOrDefault()?.Description ?? "Failed to update ApplicationUser.";
+            serviceRes.Message = updateRes.Errors.FirstOrDefault().Description;
             return serviceRes;
         }
 
@@ -135,6 +141,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
             if (!user.MarketplaceShopId.HasValue)
             {
                 serviceRes.IsSuccess = false;
+                serviceRes.Message = ServiceResponseMessages.UnexpectedError;
                 return serviceRes;
             }
             
@@ -161,16 +168,17 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
                 }
 
                 serviceRes.IsSuccess = false;
+                serviceRes.Message = managerRes.Errors.FirstOrDefault().Description;
                 return serviceRes;
             }
 
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "Invalid username or password.";
+            serviceRes.Message = ServiceResponseMessages.InvalidPassword;
             return serviceRes;
         }
 
         serviceRes.IsSuccess = false;
-        serviceRes.Message = "Invalid username or password.";
+        serviceRes.Message = ServiceResponseMessages.InvalidLogin;
         return serviceRes;
     }
 
@@ -182,7 +190,7 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
         if (entity.Entity == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "Shop could not be found.";
+            serviceRes.Message = ServiceResponseMessages.UserNotFoundById(userId);
             return serviceRes;
         }
 
@@ -197,6 +205,34 @@ public class MarketplaceShopAuthService : AuthService, IUserAuthService<Register
             return serviceRes;
         }
 
+        serviceRes.IsSuccess = true;
+        return serviceRes;
+    }
+    
+    public async Task<ServiceResponse> DeleteUserAsync(int marketplaceShopId)
+    {
+        ServiceResponse serviceRes = new ServiceResponse();
+        
+        var shopRes = await _shopService.GetAsync(marketplaceShopId);
+
+        if (!shopRes.IsSuccess)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = shopRes.Message;
+            
+            return serviceRes;
+        }
+
+        var deleteRes = await DeleteApplicationUserByIdAsync(shopRes.Entity.ApplicationUserId);
+
+        if (!deleteRes.IsSuccess)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = deleteRes.Message;
+            
+            return serviceRes;
+        }
+        
         serviceRes.IsSuccess = true;
         return serviceRes;
     }

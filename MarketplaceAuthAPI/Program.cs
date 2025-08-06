@@ -38,6 +38,8 @@ internal class Program
             app.UseSwaggerUI();
         }
 
+        app.UseCors("AllowAll");
+        
         app.UseHttpsRedirection();
         
         app.UseAuthentication();
@@ -116,6 +118,17 @@ internal class Program
         //add DbContext
         builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MarketplaceAuthDb")));
         
+        //configure cors for front-end
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
+        });
         
         //register services
         

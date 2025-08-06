@@ -7,8 +7,7 @@ public class MarketplaceShop
     public int ApplicationUserId { get; set; }
     public ApplicationUser ApplicationUser { get; set; }
     
-    public string LogoUrl { get; set; }
+    public string? LogoUrl { get; set; }
     public string Name { get; set; }
-    public Address Address { get; set; }
-    IEnumerable<int>? ProductIds { get; set; }
+    public IEnumerable<Address>? Addresses { get; set; }
 }

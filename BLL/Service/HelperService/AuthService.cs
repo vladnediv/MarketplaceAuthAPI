@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using BLL.Model.RequestModel;
+using BLL.Model.RequestModel.HelperModel;
 using BLL.Model.ServiceResponse;
 using BLL.Service.Interface;
 using Domain.Model;
@@ -47,10 +49,10 @@ public class AuthService : IAuthService
         
         if (res.IsSuccess)
         {
-            if (res.Entity.RefreshToken != refreshToken)
+            if (res.Entity.RefreshToken != refreshToken || res.Entity.RefreshTokenExpireTime < DateTime.UtcNow)
             {
                 serviceRes.IsSuccess = false;
-                serviceRes.Message = "Invalid refresh token!";
+                serviceRes.Message = ServiceResponseMessages.InvalidRefreshToken;
             }
             else
             {
@@ -58,7 +60,7 @@ public class AuthService : IAuthService
                 string newRefreshToken = await _jwtService.GenerateRefreshTokenAsync();
                 
                 res.Entity.RefreshToken = newRefreshToken;
-                res.Entity.RefreshTokenExpireTime = DateTime.UtcNow.AddDays(7);
+                res.Entity.RefreshTokenExpireTime = DateTime.UtcNow.AddMinutes(2);
                 
                 IdentityResult identityResult = await _userManager.UpdateAsync(res.Entity);
                 if (!identityResult.Succeeded)
@@ -68,18 +70,32 @@ public class AuthService : IAuthService
                 }
                 else
                 {
+                    
                     serviceRes.IsSuccess = true;
+                    serviceRes.Entity = new TokenModel();
                     serviceRes.Entity.RefreshToken = newRefreshToken;
                     serviceRes.Entity.AccessToken = newAccessToken;
+                    serviceRes.Entity.Role = GetUserRole(res.Entity);
                 }
             }
         }
         else
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         return serviceRes;
+    }
+
+    public string GetUserRole(ApplicationUser user)
+    {
+        string role = "";
+        role = user.MarketplaceUserId.HasValue ? IdentityRoles.User : 
+            user.MarketplaceShopId.HasValue ? IdentityRoles.Shop :
+            user.MarketplaceAdminId.HasValue ? IdentityRoles.Admin :
+            IdentityRoles.User;
+        
+        return role;
     }
     public async Task<ServiceResponse<ApplicationUser>> GetApplicationUserByLoginAsync(string login)
     {
@@ -90,7 +106,7 @@ public class AuthService : IAuthService
         if (user == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         else
         {
@@ -108,7 +124,7 @@ public class AuthService : IAuthService
         if (user == null)
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         else
         {
@@ -118,7 +134,7 @@ public class AuthService : IAuthService
         return serviceRes;
     }
 
-    public async Task<ServiceResponse<IdentityError>> DeleteUserByIdAsync(int id)
+    public async Task<ServiceResponse<IdentityError>> DeleteApplicationUserByIdAsync(int id)
     {
         ApplicationUser? user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
         
@@ -140,7 +156,7 @@ public class AuthService : IAuthService
         else
         {
             serviceRes.IsSuccess = false;
-            serviceRes.Message = "User not found!";
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
         }
         return serviceRes;
     }
@@ -177,5 +193,62 @@ public class AuthService : IAuthService
                 Entities = addRes.Errors.ToList()
             };
         }
+    }
+
+    public int GetUserIdFromClaims(ClaimsPrincipal user)
+    {
+        var id = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? "0";
+        return int.Parse(id);
+    }
+
+    public async Task<ServiceResponse<IdentityError>> LogoutUserByClaimsAsync(ClaimsPrincipal user)
+    {
+        ServiceResponse<IdentityError> serviceRes = new ServiceResponse<IdentityError>();
+        
+        if (user == null)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.ArgumentIsNull(nameof(user), nameof(ClaimsPrincipal));
+            
+            return serviceRes;
+        }
+        
+        int userId = GetUserIdFromClaims(user);
+
+        if (userId == 0)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.UserNotFound;
+            
+            return serviceRes;
+        }
+        
+        var applicationUser = await _userManager.FindByIdAsync(userId.ToString());
+
+        if (applicationUser == null)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Message = ServiceResponseMessages.UserNotFoundById(userId);
+            
+            return serviceRes;
+        }
+        
+        applicationUser.RefreshToken = null;
+        applicationUser.RefreshTokenExpireTime = null;
+        
+        var updateRes = await _userManager.UpdateAsync(applicationUser);
+
+        if (!updateRes.Succeeded)
+        {
+            serviceRes.IsSuccess = false;
+            serviceRes.Entities = updateRes.Errors.ToList();
+            serviceRes.Message = updateRes.Errors.First().Description;
+            
+            return serviceRes;
+        }
+        
+        serviceRes.IsSuccess = true;
+        
+        return serviceRes;
     }
 }
