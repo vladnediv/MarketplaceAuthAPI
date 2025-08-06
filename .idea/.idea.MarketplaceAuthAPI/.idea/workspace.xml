@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
