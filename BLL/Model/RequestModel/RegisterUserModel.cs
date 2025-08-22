@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using BLL.Model.RequestModel.HelperModel;
+using BLL.Model.RequestModel.HelperModel.Interface;
+using BLL.Model.RequestModel.HelperModel.RegisterModel;
 
 namespace BLL.Model.RequestModel;
 

@@ -1,4 +1,4 @@
-namespace BLL.Model.RequestModel.HelperModel;
+namespace BLL.Model.Constants;
 
 public static class ServiceResponseMessages
 {

@@ -1,4 +1,4 @@
-using BLL.Model.ServiceResponse;
+using BLL.Model.ResponseModel;
 
 namespace BLL.Service.Interface;
 

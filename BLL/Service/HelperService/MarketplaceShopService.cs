@@ -1,11 +1,10 @@
-using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.Constants;
+using BLL.Model.ResponseModel;
 using BLL.Service.Interface;
-using DAL.Repository;
 using DAL.Repository.Interface;
 using Domain.Model;
 
-namespace BLL.Service;
+namespace BLL.Service.HelperService;
 
 public class MarketplaceShopService : IGenericService<MarketplaceShop>
 {

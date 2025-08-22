@@ -9,7 +9,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="" />
+    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Attribute/NotEqualAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Attribute/NotEqualAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/Constants/IdentityRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/IdentityRoles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceShopDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceShopDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/ChangePasswordModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/ChangePasswordModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/Interface/IRegisterModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/Interface/IRegisterModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/Interface/IUpdateUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/Interface/IUpdateUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/GenericRegisterUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/GenericRegisterUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceAdmin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceAdmin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceAdmin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/RegisterUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/UpdateUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/UpdateUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/ResponseModel/ServiceResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/ResponseModel/ServiceResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/ResponseModel/TokenModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceAdminService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceAdminService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceShopService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceShopService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/MarketplaceUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IAdminService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IAdminService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IGenericService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IGenericService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IJwtService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IJwtService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,6 +256,7 @@
       <workItem from="1754997239006" duration="2366000" />
       <workItem from="1755165205294" duration="2066000" />
       <workItem from="1755301741786" duration="9948000" />
+      <workItem from="1755851659259" duration="876000" />
     </task>
     <servers />
   </component>

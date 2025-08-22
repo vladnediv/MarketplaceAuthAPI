@@ -1,6 +1,7 @@
 using BLL.Model.RequestModel;
-using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.RequestModel.HelperModel.Interface;
+using BLL.Model.RequestModel.HelperModel.RegisterModel;
+using BLL.Model.ResponseModel;
 using Microsoft.AspNetCore.Identity;
 
 namespace BLL.Service.Interface;

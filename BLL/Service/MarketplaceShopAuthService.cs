@@ -1,8 +1,10 @@
 using AutoMapper;
+using BLL.Model.Constants;
 using BLL.Model.RequestModel;
-using BLL.Model.RequestModel.HelperModel;
+using BLL.Model.RequestModel.HelperModel.RegisterModel;
 using BLL.Model.RequestModel.HelperModel.UpdateModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.ResponseModel;
+using BLL.Service.HelperService;
 using BLL.Service.Interface;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;

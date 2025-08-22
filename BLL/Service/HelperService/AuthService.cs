@@ -1,13 +1,13 @@
 using System.Security.Claims;
+using BLL.Model.Constants;
 using BLL.Model.RequestModel;
-using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.ResponseModel;
 using BLL.Service.Interface;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace BLL.Service;
+namespace BLL.Service.HelperService;
 
 public class AuthService : IAuthService
 {

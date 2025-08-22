@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using BLL.Model.RequestModel;
-using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.ResponseModel;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
 

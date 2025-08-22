@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace BLL.Model.RequestModel.HelperModel;
+namespace BLL.Model.DTO;
 
 public class AddressDTO
 {

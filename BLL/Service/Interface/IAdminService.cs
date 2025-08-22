@@ -1,7 +1,7 @@
 using BLL.Model.DTO;
-using BLL.Model.RequestModel.HelperModel;
+using BLL.Model.RequestModel.HelperModel.RegisterModel;
 using BLL.Model.RequestModel.HelperModel.UpdateModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.ResponseModel;
 
 namespace BLL.Service.Interface;
 

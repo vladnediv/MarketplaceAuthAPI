@@ -1,8 +1,8 @@
+using BLL.Model.Constants;
 using BLL.Model.RequestModel;
-using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.ServiceResponse;
+using BLL.Model.RequestModel.HelperModel.RegisterModel;
+using BLL.Model.ResponseModel;
 using BLL.Service;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-namespace BLL.Model.ServiceResponse;
+namespace BLL.Model.ResponseModel;
 
 public class ServiceResponse<T> where T : class
 {

@@ -1,4 +1,4 @@
-namespace BLL.Model.ServiceResponse;
+namespace BLL.Model.ResponseModel;
 
 public class TokenModel
 {

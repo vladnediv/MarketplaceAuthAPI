@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using BLL.Model.Attribute;
+using BLL.Attribute;
 
 namespace BLL.Model.RequestModel;
 

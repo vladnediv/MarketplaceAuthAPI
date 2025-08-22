@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace BLL.Model.Attribute;
+namespace BLL.Attribute;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 public class NotEqualAttribute : ValidationAttribute

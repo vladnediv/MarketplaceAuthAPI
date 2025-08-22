@@ -1,4 +1,3 @@
-using BLL.Model.ServiceResponse;
 using Domain.Model;
 
 namespace BLL.Service.Interface;

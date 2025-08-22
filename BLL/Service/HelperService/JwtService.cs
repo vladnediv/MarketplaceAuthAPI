@@ -2,15 +2,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using BLL.Model.ServiceResponse;
 using BLL.Service.Interface;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Tokens;
 
-namespace BLL.Service;
+namespace BLL.Service.HelperService;
 
 public class JwtService : IJwtService
 {

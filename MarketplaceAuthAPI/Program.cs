@@ -1,8 +1,7 @@
 using System.Text;
 using BLL.Mapping;
-using BLL.Model.RequestModel.HelperModel;
-using BLL.Model.RequestModel.HelperModel.UpdateModel;
 using BLL.Service;
+using BLL.Service.HelperService;
 using BLL.Service.Interface;
 using DAL.Context;
 using DAL.Repository;
