@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="" />
+    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/appsettings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +123,7 @@
     &quot;Publish to folder.Publish MarketplaceAuthAPI to folder.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend__core&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;implement-google-auth&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -179,7 +181,7 @@
     <configuration name="MarketplaceAuthAPI" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -191,6 +193,15 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.MarketplaceAuthAPI" />
+      <item itemvalue="HTTP Request.All in MarketplaceAuthAPI-endpoints" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="HTTP Request.MarketplaceAuthAPI-endpoints | #1" />
+      <item itemvalue="Publish to custom server.Publish MarketplaceAuthAPI to custom server" />
+      <item itemvalue="Publish to custom server.Publish MarketplaceAuthAPI to custom server (1)" />
+      <item itemvalue="Publish to folder.Publish MarketplaceAuthAPI to folder" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.MarketplaceAuthAPI-endpoints | #1" />
@@ -218,6 +229,8 @@
       <workItem from="1755165205294" duration="2066000" />
       <workItem from="1755301741786" duration="9948000" />
       <workItem from="1755851659259" duration="1205000" />
+      <workItem from="1756112114450" duration="19299000" />
+      <workItem from="1756519831815" duration="19000" />
     </task>
     <servers />
   </component>

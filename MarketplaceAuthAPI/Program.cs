@@ -95,7 +95,13 @@ internal class Program
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             }
-        ).AddJwtBearer(options =>
+        )
+        .AddGoogle(options =>
+        {
+            options.ClientId = builder.Configuration["GoogleAuth:ClientId"];
+            options.ClientSecret = builder.Configuration["GoogleAuth:ClientSecret"];
+        })
+        .AddJwtBearer(options =>
         {
             //Only for development
             options.RequireHttpsMetadata = false;

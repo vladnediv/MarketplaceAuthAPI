@@ -151,6 +151,8 @@ public class MarketplaceAdminAuthService : AuthService, IAdminService
 
                 if (managerRes.Succeeded)
                 {
+                    string role = await _userManager.IsInRoleAsync(user, IdentityRoles.Admin)? IdentityRoles.Admin : IdentityRoles.SuperAdmin;
+                    
                     var accessToken = await _jwtService.GenerateAccessTokenAsync(user);
 
                     serviceRes.IsSuccess = true;
@@ -158,7 +160,7 @@ public class MarketplaceAdminAuthService : AuthService, IAdminService
                     {
                         AccessToken = accessToken,
                         RefreshToken = user.RefreshToken,
-                        Role = IdentityRoles.Admin
+                        Role = role
                     };
 
                     return serviceRes;
