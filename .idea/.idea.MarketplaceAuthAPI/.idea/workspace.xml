@@ -9,7 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="" />
+    <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BLL/Model/DTO/UserShopView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IShopService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/ShopService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +90,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4c829da64c1821da9e1cf9118411ccdf7e37b8d177331860426fc8f8de841/EntityEntry`.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bbcfe7ab04c9c5e854e8084459eb29d1ba45cca1ecfec1ad876fafa1267/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bdf2b417a9d772a94f24d495b1df6c166a065fbfffc2e8a232f10b6d039cb63/ValidateNeverAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c05785bcebd2c944852db620e6681c606cd57f85b59fc5ddfcfbe9a68d634f/MemoryMarshal.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7afd9724cf757c4a8469dba2bdc22ab5ac111c91f431dbfefc992dacb3e8635/ControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c9f1e78ef04f5214281bc448c6a251bb5f9a3135b662f76745bbfb39b14150/First.cs" root0="FORCE_HIGHLIGHTING" />
@@ -108,28 +119,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.MarketplaceAuthAPI.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in MarketplaceAuthAPI-endpoints.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
-    &quot;Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor&quot;: &quot;Run&quot;,
-    &quot;Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor&quot;: &quot;Run&quot;,
-    &quot;Publish to folder.Publish MarketplaceAuthAPI to folder.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend__core&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Debug",
+    ".NET Launch Settings Profile.Unnamed.executor": "Run",
+    ".NET Project.Unnamed.executor": "Run",
+    "HTTP Request.All in MarketplaceAuthAPI-endpoints.executor": "Run",
+    "HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor": "Run",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor": "Run",
+    "Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor": "Run",
+    "Publish to folder.Publish MarketplaceAuthAPI to folder.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "get-user-info-methods",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MarketplaceAuthAPI">
     <configuration name="Publish MarketplaceAuthAPI to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/../AuthApiPublished" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
@@ -191,6 +202,15 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.MarketplaceAuthAPI" />
+      <item itemvalue="HTTP Request.All in MarketplaceAuthAPI-endpoints" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="HTTP Request.MarketplaceAuthAPI-endpoints | #1" />
+      <item itemvalue="Publish to custom server.Publish MarketplaceAuthAPI to custom server" />
+      <item itemvalue="Publish to custom server.Publish MarketplaceAuthAPI to custom server (1)" />
+      <item itemvalue="Publish to folder.Publish MarketplaceAuthAPI to folder" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.MarketplaceAuthAPI-endpoints | #1" />
@@ -236,5 +256,24 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs</url>
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" containingFunctionPresentation="Method 'GetUserInfo'">
+            <startOffsets>
+              <option value="684" />
+            </startOffsets>
+            <endOffsets>
+              <option value="723" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
