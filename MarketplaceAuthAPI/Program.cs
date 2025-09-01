@@ -150,5 +150,7 @@ internal class Program
         builder.Services.AddScoped<MarketplaceUserAuthService>();
         builder.Services.AddScoped<MarketplaceShopAuthService>();
         builder.Services.AddScoped<MarketplaceAdminAuthService>();
+        
+        builder.Services.AddScoped<IShopService, ShopService>();
     }
 }
