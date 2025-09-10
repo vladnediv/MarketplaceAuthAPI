@@ -10,15 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BLL/Model/DTO/UserShopView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IShopService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BLL/Service/ShopService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/ShopController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +124,7 @@
     "Publish to folder.Publish MarketplaceAuthAPI to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "get-user-info-methods",
+    "git-widget-placeholder": "backend__core",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -190,7 +182,7 @@
     <configuration name="MarketplaceAuthAPI" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MarketplaceAuthAPI/MarketplaceAuthAPI.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
