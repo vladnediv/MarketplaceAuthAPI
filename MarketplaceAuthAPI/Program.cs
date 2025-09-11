@@ -1,6 +1,7 @@
 using System.Text;
 using BLL.Mapping;
 using BLL.Service;
+using BLL.Service.AuthService;
 using BLL.Service.HelperService;
 using BLL.Service.Interface;
 using DAL.Context;
@@ -143,6 +144,8 @@ internal class Program
         builder.Services.AddScoped<IJwtService, JwtService>();
         builder.Services.AddScoped<IAuthService, AuthService>();
         
+        builder.Services.AddScoped<IFileService, FileService>();
+        
         builder.Services.AddScoped<IGenericService<MarketplaceUser>, MarketplaceUserService>();
         builder.Services.AddScoped<IGenericService<MarketplaceShop>, MarketplaceShopService>();
         builder.Services.AddScoped<IGenericService<MarketplaceAdmin>, MarketplaceAdminService>();
@@ -152,5 +155,6 @@ internal class Program
         builder.Services.AddScoped<MarketplaceAdminAuthService>();
         
         builder.Services.AddScoped<IShopService, ShopService>();
+        builder.Services.AddScoped<IUserService, UserService>();
     }
 }

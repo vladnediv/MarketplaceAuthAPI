@@ -5,7 +5,7 @@ using BLL.Model.ResponseModel;
 
 namespace BLL.Service.Interface;
 
-public interface IAdminService : IUserAuthService<RegisterMarketplaceAdmin, UpdateMarketplaceAdmin>
+public interface IAdminService : IGenericUserAuthService<RegisterMarketplaceAdmin, UpdateMarketplaceAdmin>
 {
     public Task<ServiceResponse<MarketplaceShopDTO>> GetShopByIdAsync(int shopId);
     public Task<ServiceResponse<MarketplaceShopDTO>> GetShopsAsync();

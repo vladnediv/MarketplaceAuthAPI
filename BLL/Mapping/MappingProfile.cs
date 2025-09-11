@@ -22,6 +22,9 @@ public class MappingProfile : Profile
         //MarketplaceUser
         CreateMap<MarketplaceUser, UserShopView>();
         CreateMap<UserShopView, MarketplaceUser>();
+        
+        CreateMap<MarketplaceUser, MarketplaceUserDTO>();
+        CreateMap<MarketplaceUserDTO, MarketplaceUser>();
 
         //MarketplaceAdmin
 

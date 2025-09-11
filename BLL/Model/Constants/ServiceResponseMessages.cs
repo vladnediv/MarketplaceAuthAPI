@@ -16,8 +16,14 @@ public static class ServiceResponseMessages
     public const string UpdateFailed = "Failed to update the entity.";
     public const string DeleteFailed = "Failed to delete the entity.";
     
+    public const string FileEmpty = "File is empty.";
+    public const string FileSizeTooLarge = "File too large (max 5 MB).";
+    public const string UnsupportedFileType = "Unsupported file type.";
+    public const string FileNotFound = "File not found.";
+    
     public const string UnexpectedError = "An unexpected error occurred.";
     
     public static string ArgumentIsNull(string variable, string entityType) => $"The argument [{variable}] of type [{entityType}] is null.";
+    public static string ArgumentsAreNull = "One or more arguments are null.";
 
 }

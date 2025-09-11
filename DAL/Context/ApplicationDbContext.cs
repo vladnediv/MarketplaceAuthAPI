@@ -39,14 +39,14 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser,  Identity
             .HasForeignKey<MarketplaceAdmin>(ma => ma.ApplicationUserId)
             .OnDelete(DeleteBehavior.Cascade);
         
-        //Address -> MarketplaceUser : One-To-Many relation
+        //Address -> MarketplaceUser : One-To-One relation
         builder.Entity<MarketplaceUser>()
-            .HasMany(x => x.Addresses)
+            .HasOne(x => x.Address)
             .WithOne(x => x.User)
-            .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey<Address>(x => x.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
         
-        //Address -> MarketplaceShop : One-To-One relation
+        //Address -> MarketplaceShop : One-To-Many relation
         builder.Entity<MarketplaceShop>()
             .HasMany(x => x.Addresses)
             .WithOne(x => x.Shop)
