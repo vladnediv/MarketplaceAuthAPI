@@ -1,5 +1,6 @@
 using BLL.Model.Constants;
 using BLL.Service;
+using BLL.Service.AuthService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

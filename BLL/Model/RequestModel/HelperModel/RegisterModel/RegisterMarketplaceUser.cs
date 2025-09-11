@@ -9,7 +9,4 @@ public class RegisterMarketplaceUser : IRegisterModel
     public string FirstName  { get; set; }
     [Required]
     public string LastName  { get; set; }
-    [Required]
-    [DataType(DataType.PhoneNumber)]
-    public string PhoneNumber { get; set; }
 }

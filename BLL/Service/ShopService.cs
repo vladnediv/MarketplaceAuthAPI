@@ -37,7 +37,7 @@ public class ShopService : IShopService
             return response;
         }
         response.Entity = _mapper.Map<UserShopView>(res.Entity);
-        response.Entity.Addresses = null;
+        response.Entity.Address = null;
         response.IsSuccess = true;
         
         return response;
@@ -58,15 +58,11 @@ public class ShopService : IShopService
             return response;
         }
         response.Entity = _mapper.Map<UserShopView>(res.Entity);
-        response.Entity.Addresses = new List<AddressDTO>();
+        response.Entity.Address = new AddressDTO();
 
-        if (res.Entity.Addresses != null)
+        if (res.Entity.Address != null)
         {
-            var address = res.Entity.Addresses.FirstOrDefault(x => x.Id == addressId);
-            if (address != null)
-            {
-                response.Entity.Addresses.Add(_mapper.Map<AddressDTO>(address));
-            }
+            response.Entity.Address = _mapper.Map<AddressDTO>(res.Entity.Address);
         }
         
         response.IsSuccess = true;

@@ -10,7 +10,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BLL/Service/HelperService/FileService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IFileService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IGenericUserAuthService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/Constants/ServiceResponseMessages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceShopDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceShopDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceUserDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceUserDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/UserShopView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/UserShopView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/GenericRegisterUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/GenericRegisterUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceShop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/RegisterModel/RegisterMarketplaceUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/HelperModel/UpdateModel/UpdateMarketplaceUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/LoginUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/LoginUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/RequestModel/UpdateUserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/UpdateUserModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IAdminService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IAdminService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceAdminAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceAdminAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceShopAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceShopAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/ShopService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/ShopService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/Context/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Context/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/Migration/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Migration/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Repository/MarketplaceUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Model/Address.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/Address.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Model/MarketplaceUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Model/MarketplaceUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AdminController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AdminController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +113,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a97de4a8569891284b8e6d88ea9fef8d92abcadf1aa85ae14a847d4507bf8/MethodBase.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a9f9b014def08dd8d286abe41f6751779a1aab5c939a73bbc4eea9381b334e3/CastCache.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4c829da64c1821da9e1cf9118411ccdf7e37b8d177331860426fc8f8de841/EntityEntry`.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/baf2eef7c7bbea3742b74ee71fe7168c3a8c2269a1ce22d51333175656840/RuntimeType.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bbcfe7ab04c9c5e854e8084459eb29d1ba45cca1ecfec1ad876fafa1267/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bdf2b417a9d772a94f24d495b1df6c166a065fbfffc2e8a232f10b6d039cb63/ValidateNeverAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -124,12 +158,13 @@
     "Publish to folder.Publish MarketplaceAuthAPI to folder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "backend__core",
+    "git-widget-placeholder": "edit-personal-data-logic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -230,6 +265,8 @@
       <workItem from="1755165205294" duration="2066000" />
       <workItem from="1755301741786" duration="9948000" />
       <workItem from="1755851659259" duration="1205000" />
+      <workItem from="1757495472294" duration="3488000" />
+      <workItem from="1757512803531" duration="13562000" />
     </task>
     <servers />
   </component>
@@ -264,6 +301,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs</url>
+          <line>40</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" containingFunctionPresentation="Method 'GetPersonalInfoAsync'">
+            <startOffsets>
+              <option value="1204" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1260" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>62</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'LoginAsync'">
+            <startOffsets>
+              <option value="1942" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2000" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

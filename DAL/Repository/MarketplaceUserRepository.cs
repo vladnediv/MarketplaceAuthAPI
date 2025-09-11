@@ -25,7 +25,8 @@ public class MarketplaceUserRepository : IGenericRepository<MarketplaceUser>
     public async Task<MarketplaceUser> GetById(int id)
     {
         return await _dbSet
-            .Include(x => x.Addresses)
+            .Include(x => x.Address)
+            .Include(x => x.ApplicationUser)
             .FirstOrDefaultAsync(x => x.Id == id);
     }
 

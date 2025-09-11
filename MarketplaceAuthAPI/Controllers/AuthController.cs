@@ -3,6 +3,7 @@ using BLL.Model.RequestModel;
 using BLL.Model.RequestModel.HelperModel.RegisterModel;
 using BLL.Model.ResponseModel;
 using BLL.Service;
+using BLL.Service.AuthService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -64,7 +65,8 @@ public class AuthController : Controller
         {
 
             if (userResult.Message == ServiceResponseMessages.InvalidLogin ||
-                userResult.Message == ServiceResponseMessages.InvalidPassword)
+                userResult.Message == ServiceResponseMessages.InvalidPassword ||
+                userResult.Message == ServiceResponseMessages.ArgumentsAreNull)
             {
                 return Unauthorized(userResult);
             }
@@ -92,6 +94,17 @@ public class AuthController : Controller
         }
 
         return Ok(userResult);
+    }
+
+    [HttpPost("CheckLogin")]
+    public async Task<IActionResult> CheckLoginAsync([FromBody] string login)
+    {
+        var result = await _userAuthService.CheckLoginAsync(login);
+        if (result.IsSuccess)
+        {
+            return Ok(result);
+        }
+        return BadRequest(result);
     }
 
     [HttpPost("RefreshToken")]
