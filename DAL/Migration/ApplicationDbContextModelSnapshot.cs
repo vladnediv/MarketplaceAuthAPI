@@ -52,7 +52,7 @@ namespace DAL.Migration
                         .IsUnique()
                         .HasFilter("[UserId] IS NOT NULL");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Model.ApplicationUser", b =>
@@ -158,7 +158,7 @@ namespace DAL.Migration
                     b.HasIndex("ApplicationUserId")
                         .IsUnique();
 
-                    b.ToTable("MarketplaceAdmins");
+                    b.ToTable("MarketplaceAdmins", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Model.MarketplaceShop", b =>
@@ -184,7 +184,7 @@ namespace DAL.Migration
                     b.HasIndex("ApplicationUserId")
                         .IsUnique();
 
-                    b.ToTable("MarketplaceShops");
+                    b.ToTable("MarketplaceShops", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Model.MarketplaceUser", b =>
@@ -214,7 +214,7 @@ namespace DAL.Migration
                     b.HasIndex("ApplicationUserId")
                         .IsUnique();
 
-                    b.ToTable("MarketplaceUsers");
+                    b.ToTable("MarketplaceUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
