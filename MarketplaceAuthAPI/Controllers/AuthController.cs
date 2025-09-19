@@ -4,6 +4,7 @@ using BLL.Model.RequestModel.HelperModel.RegisterModel;
 using BLL.Model.ResponseModel;
 using BLL.Service;
 using BLL.Service.AuthService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,6 +57,19 @@ public class AuthController : Controller
 
         return BadRequest(result);
     }
+    
+    [Authorize(Roles = IdentityRoles.SuperAdmin)]
+    [HttpPost("RegisterAdmin")]
+    public async Task<IActionResult> RegisterAdminAsync([FromBody] RegisterUserModel<RegisterMarketplaceAdmin> model)
+    {
+        var res = await _adminAuthService.RegisterAsync(model.RegisterModel);
+
+        if (res.IsSuccess)
+        {
+            return Ok(res);
+        }
+        return BadRequest(res);
+    }
 
     [HttpPost("Login")]
     public async Task<IActionResult> LoginAsync([FromBody] LoginUserModel model)
@@ -86,7 +100,7 @@ public class AuthController : Controller
                 {
                     return Unauthorized(adminResult);
                 }
-
+                
                 return Ok(adminResult);
             }
 

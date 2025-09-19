@@ -65,7 +65,7 @@ public class MarketplaceAdminAuthService : HelperService.AuthService, IAdminServ
             return serviceRes;
         }
 
-        var roleRes = await AddToRoleAsync(user, IdentityRoles.Admin);
+        var roleRes = await AddToRoleAsync(user, IdentityRoles.SuperAdmin);
         if (!roleRes.IsSuccess)
         {
             await _userManager.DeleteAsync(user);
@@ -143,6 +143,7 @@ public class MarketplaceAdminAuthService : HelperService.AuthService, IAdminServ
             var isValid = await _userManager.CheckPasswordAsync(user, loginUserModel.Password);
             if (isValid)
             {
+                var isSuperAdmin = await _userManager.IsInRoleAsync(user, IdentityRoles.Admin);
                 user.RefreshToken = await _jwtService.GenerateRefreshTokenAsync();
                 user.RefreshTokenExpireTime = DateTime.UtcNow.AddDays(7);
                 var managerRes = await _userManager.UpdateAsync(user);
@@ -156,7 +157,7 @@ public class MarketplaceAdminAuthService : HelperService.AuthService, IAdminServ
                     {
                         AccessToken = accessToken,
                         RefreshToken = user.RefreshToken,
-                        Role = IdentityRoles.Admin
+                        Role = isSuperAdmin ? IdentityRoles.SuperAdmin : IdentityRoles.Admin
                     };
 
                     return serviceRes;
