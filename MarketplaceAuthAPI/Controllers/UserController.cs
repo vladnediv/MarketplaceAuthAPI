@@ -61,6 +61,13 @@ public class UserController : Controller
     [HttpPost("UpdatePersonalInfo")]
     public async Task<IActionResult> UpdateAsync([FromForm] UpdateUserModel<UpdateMarketplaceUser> model)
     {
+        var id = _userAuthService.GetUserIdFromClaims(User);
+        if (id == 0)
+        {
+            return Unauthorized(new  ServiceResponse { IsSuccess = false, Message = ServiceResponseMessages.UserNotFound });
+        }
+
+        model.Id = id;
         /*
         var email = User.FindFirst(ClaimTypes.Name)?.Value;
         var res = await _userAuthService.GetApplicationUserByLoginAsync(email);

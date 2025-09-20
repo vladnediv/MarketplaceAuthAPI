@@ -6,7 +6,7 @@ public class MarketplaceUserDTO
     public string PictureUrl { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public List<AddressDTO>? Addresses { get; set; }
+    public AddressDTO? Address { get; set; }
     public string Phone { get; set; }
     public string Email { get; set; }
 }

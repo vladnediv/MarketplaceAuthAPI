@@ -62,6 +62,10 @@ public class AuthController : Controller
     [HttpPost("RegisterAdmin")]
     public async Task<IActionResult> RegisterAdminAsync([FromBody] RegisterUserModel<RegisterMarketplaceAdmin> model)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         var res = await _adminAuthService.RegisterAsync(model.RegisterModel);
 
         if (res.IsSuccess)

@@ -57,6 +57,7 @@ public class UserService : IUserService
         response.Entity = _mapper.Map<MarketplaceUser, MarketplaceUserDTO>(getRes.Entity);
         response.Entity.Email = getRes.Entity.ApplicationUser.Email;
         response.Entity.Phone = getRes.Entity.ApplicationUser.PhoneNumber;
+        response.Entity.Address = getRes.Entity.Address == null ? null : _mapper.Map<Address, AddressDTO>(getRes.Entity.Address);
         
         return response;
     }
@@ -66,7 +67,15 @@ public class UserService : IUserService
         var response = new ServiceResponse();
         
         //get the user by Id
-        var getUser = await _userService.GetAsync(updateUserModel.Id);
+        var applicationUser = await _userManagerService.FindByIdAsync(updateUserModel.Id.ToString());
+        if (applicationUser == null)
+        {
+            response.IsSuccess = false;
+            response.Message = ServiceResponseMessages.UserNotFound;
+            
+            return response;
+        }
+        var getUser = await _userService.GetAsync((int)applicationUser.MarketplaceUserId);
         
         if (!getUser.IsSuccess)
         {

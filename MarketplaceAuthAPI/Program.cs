@@ -39,6 +39,9 @@ internal class Program
         }
 
         app.UseCors("AllowAll");
+
+        //configure wwwroot
+        app.UseStaticFiles();
         
         app.UseHttpsRedirection();
         
