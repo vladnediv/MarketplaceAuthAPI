@@ -56,7 +56,7 @@ public class UserController : Controller
             return Ok(res);
         }
         return BadRequest(res);
-    }
+    }   
     
     [HttpPost("UpdatePersonalInfo")]
     public async Task<IActionResult> UpdateAsync([FromForm] UpdateUserModel<UpdateMarketplaceUser> model)
@@ -68,14 +68,6 @@ public class UserController : Controller
         }
 
         model.Id = id;
-        /*
-        var email = User.FindFirst(ClaimTypes.Name)?.Value;
-        var res = await _userAuthService.GetApplicationUserByLoginAsync(email);
-        if (!res.IsSuccess)
-        {
-            return BadRequest(res);
-        }
-        */
 
         var result = await _userService.EditPersonalInfoAsync(model, _env.WebRootPath);
         if (result.IsSuccess)

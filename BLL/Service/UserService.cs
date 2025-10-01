@@ -85,7 +85,7 @@ public class UserService : IUserService
             return response;
         }
         
-        //rewrite his data to match update
+        //rewrite user data to match updated one
         getUser.Entity.Address = _mapper.Map<Address>(updateUserModel.User.Address);
         getUser.Entity.FirstName = updateUserModel.User.FirstName;
         getUser.Entity.LastName = updateUserModel.User.LastName;

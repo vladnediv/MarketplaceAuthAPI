@@ -23,6 +23,7 @@ public class JwtService : IJwtService
 
     public async Task<string> GenerateAccessTokenAsync(ApplicationUser user)
     {
+        //get jwt config details
         string jwtIssuer = _configuration["JwtConfig:Issuer"];
         string jwtAudience = _configuration["JwtConfig:Audience"];
         string jwtKey = _configuration["JwtConfig:Key"];

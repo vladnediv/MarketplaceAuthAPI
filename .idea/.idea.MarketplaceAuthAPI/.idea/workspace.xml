@@ -11,12 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceUserDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/MarketplaceUserDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceAdminAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceAdminAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BLL/Service/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/wwwroot/Pictures/7ee97c752acc44da8b1634c9f8ac617c_cartoon-people-avatar-minimalist-human-avatar-versatile-icon.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/13fea414bb3c4e6f9337b3ef735063552b708/e9/a2433d09/UserManager`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c79eec5e0d74a12bb667514c37c99a814648/27/7636076b/SignInManager`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cabf1591cccc4d0da46b6c1185146d4c32400/72/080d8d46/CompareAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1622b8f95d27187bc1fb39bac49bd64e928773df4fda6fcf6271680be54a2/UserManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1750dff95ce6347f7797ec095c5c17196efe67de17ff2666b9992265f0b6/AuthorizeAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c12b75b72ded3579a2533dad7d6ecc6997b19ffd5a7daf7a3bba1c381f53a/TaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2280f6b68568823fe54b6fb0be31b9cbce4c9aa7882ea9482c7f66bc84f4930/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
@@ -241,6 +240,7 @@
       <workItem from="1757495472294" duration="3488000" />
       <workItem from="1757512803531" duration="13856000" />
       <workItem from="1757686710175" duration="9794000" />
+      <workItem from="1758544732497" duration="13060000" />
     </task>
     <servers />
   </component>
@@ -303,19 +303,6 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs</url>
-          <line>62</line>
-          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" containingFunctionPresentation="Method 'UpdateAsync'">
-            <startOffsets>
-              <option value="1870" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1871" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BLL/Service/UserService.cs</url>
           <line>77</line>
           <properties documentPath="$PROJECT_DIR$/BLL/Service/UserService.cs" containingFunctionPresentation="Method 'EditPersonalInfoAsync'">
@@ -329,17 +316,30 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs</url>
-          <line>40</line>
-          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" containingFunctionPresentation="Method 'GetPersonalInfoAsync'">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>118</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'CheckLoginAsync'">
             <startOffsets>
-              <option value="1204" />
+              <option value="3763" />
             </startOffsets>
             <endOffsets>
-              <option value="1260" />
+              <option value="3764" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>80</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'LoginAsync'">
+            <startOffsets>
+              <option value="2483" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2541" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
