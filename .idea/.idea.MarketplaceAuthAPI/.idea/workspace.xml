@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Model/DTO/AddressDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/HelperService/JwtService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/wwwroot/Pictures/7ee97c752acc44da8b1634c9f8ac617c_cartoon-people-avatar-minimalist-human-avatar-versatile-icon.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +114,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Debug",
+    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Run",
     ".NET Launch Settings Profile.Unnamed.executor": "Run",
     ".NET Project.Unnamed.executor": "Run",
     "HTTP Request.All in MarketplaceAuthAPI-endpoints.executor": "Run",
@@ -240,7 +235,7 @@
       <workItem from="1757495472294" duration="3488000" />
       <workItem from="1757512803531" duration="13856000" />
       <workItem from="1757686710175" duration="9794000" />
-      <workItem from="1758544732497" duration="13060000" />
+      <workItem from="1758544732497" duration="15871000" />
     </task>
     <servers />
   </component>
@@ -275,19 +270,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
-          <line>130</line>
-          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RefreshTokenAsync'">
-            <startOffsets>
-              <option value="4077" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4142" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
@@ -327,19 +309,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
-          <line>80</line>
-          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'LoginAsync'">
-            <startOffsets>
-              <option value="2483" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2541" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
