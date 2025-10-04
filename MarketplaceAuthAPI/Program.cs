@@ -58,6 +58,8 @@ internal class Program
         //add identity
         builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
+        //enable cache
+        builder.Services.AddMemoryCache();
         
         builder.Services.AddAuthorization();
         
@@ -148,6 +150,10 @@ internal class Program
         builder.Services.AddScoped<IAuthService, AuthService>();
         
         builder.Services.AddScoped<IFileService, FileService>();
+        
+        builder.Services.AddScoped<IOtpService, OtpService>();
+        
+        builder.Services.AddScoped<ISmsService, SmsService>();
         
         builder.Services.AddScoped<IGenericService<MarketplaceUser>, MarketplaceUserService>();
         builder.Services.AddScoped<IGenericService<MarketplaceShop>, MarketplaceShopService>();

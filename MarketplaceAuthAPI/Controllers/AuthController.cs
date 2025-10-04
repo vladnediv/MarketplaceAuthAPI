@@ -137,6 +137,18 @@ public class AuthController : Controller
         return BadRequest(result);
     }
 
+    [HttpPost("VerifyOtp")]
+    public async Task<IActionResult> VerifyOtpAsync([FromBody] string login, string otp)
+    {
+        var res = await _userAuthService.VerifyOtpAsync(login, otp);
+
+        if (res.IsSuccess)
+        {
+            return Ok(res);
+        }
+        return BadRequest(res);
+    }
+
     [HttpPost("RefreshToken")]
     public async Task<IActionResult> RefreshTokenAsync(string refreshToken)
     {

@@ -10,7 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/IOtpService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/Interface/ISmsService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/OtpService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BLL/Service/SmsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +248,7 @@
       <workItem from="1757686710175" duration="9794000" />
       <workItem from="1758544732497" duration="15871000" />
       <workItem from="1759499343701" duration="2321000" />
-      <workItem from="1759595237693" duration="5605000" />
+      <workItem from="1759595237693" duration="14281000" />
     </task>
     <servers />
   </component>
@@ -302,16 +312,55 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs</url>
-          <line>308</line>
+          <line>338</line>
           <properties documentPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" containingFunctionPresentation="Method 'GoogleAuthAsync'">
             <startOffsets>
-              <option value="10855" />
+              <option value="11887" />
             </startOffsets>
             <endOffsets>
-              <option value="10913" />
+              <option value="11945" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>120</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'GoogleLogin'">
+            <startOffsets>
+              <option value="3793" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3847" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>142</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'VerifyOtpAsync'">
+            <startOffsets>
+              <option value="4401" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4461" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>131</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'CheckLoginAsync'">
+            <startOffsets>
+              <option value="4087" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4146" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -17,17 +17,23 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IJwtService _jwtService;
     private readonly IGenericService<MarketplaceUser> _userService;
+    private readonly ISmsService _smsService;
+    private readonly IOtpService _otpService;
     
     public MarketplaceUserAuthService(
         UserManager<ApplicationUser> userManager,
         RoleManager<IdentityRole<int>> roleManager,
         IJwtService jwtService,
-        IGenericService<MarketplaceUser> userService
+        IGenericService<MarketplaceUser> userService,
+        ISmsService smsService,
+        IOtpService otpService
         ) : base(userManager, roleManager, jwtService)
     {
         _userManager = userManager;
         _jwtService = jwtService;
         _userService = userService;
+        _smsService = smsService;
+        _otpService = otpService;
     }
     
     public async Task<ServiceResponse<IdentityError>> RegisterAsync(GenericRegisterUserModel<RegisterMarketplaceUser> genericRegisterUserModel)
@@ -135,12 +141,15 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
     {
         //check if user logs in via email or phone number
         ApplicationUser? user = new ApplicationUser();
+        bool byEmail = false;
         if (loginUserModel.Email != null && loginUserModel.Email.Length > 0)
         {
-           user = await _userManager.FindByEmailAsync(loginUserModel.Email); 
+            byEmail = true;
+           user = await _userManager.FindByEmailAsync(loginUserModel.Email);
         }
         else if(loginUserModel.Phone != null && loginUserModel.Phone.Length > 0)
         {
+            byEmail = false;
             user = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == loginUserModel.Phone);
         }
         else
@@ -161,38 +170,49 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
                 serviceRes.Message = ServiceResponseMessages.UnexpectedError;
                 return serviceRes;
             }
-            var isValid = await _userManager.CheckPasswordAsync(user, loginUserModel.Password);
-            if (isValid)
-            {
-                user.RefreshToken = await _jwtService.GenerateRefreshTokenAsync();
-                user.RefreshTokenExpireTime = DateTime.UtcNow.AddDays(7);
-                var managerRes = await _userManager.UpdateAsync(user);
 
-                if (managerRes.Succeeded)
+            //by email -> validate password
+            if (byEmail)
+            {
+                var isValid = await _userManager.CheckPasswordAsync(user, loginUserModel.Password);
+                if (isValid)
                 {
-                    serviceRes.IsSuccess = true;
-                    var accessToken = await _jwtService.GenerateAccessTokenAsync(user);
-                    serviceRes.Entity = new TokenModel();
-                    serviceRes.Entity.AccessToken = accessToken;
-                    serviceRes.Entity.RefreshToken = user.RefreshToken;
-                    serviceRes.Entity.Role = IdentityRoles.User;
+                    user.RefreshToken = await _jwtService.GenerateRefreshTokenAsync();
+                    user.RefreshTokenExpireTime = DateTime.UtcNow.AddDays(7);
+                    var managerRes = await _userManager.UpdateAsync(user);
+
+                    if (managerRes.Succeeded)
+                    {
+                        serviceRes.IsSuccess = true;
+                        var accessToken = await _jwtService.GenerateAccessTokenAsync(user);
+                        serviceRes.Entity = new TokenModel();
+                        serviceRes.Entity.AccessToken = accessToken;
+                        serviceRes.Entity.RefreshToken = user.RefreshToken;
+                        serviceRes.Entity.Role = IdentityRoles.User;
                     
+                        return serviceRes;
+                    }
+
+                    serviceRes.IsSuccess = false;
+                
                     return serviceRes;
                 }
-
-                serviceRes.IsSuccess = false;
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.Message = ServiceResponseMessages.InvalidPassword;
                 
-                return serviceRes;
+                    return serviceRes;
+                }
             }
+            //by phone number -> not allowed, need to call method "VerifyOtp"
             else
             {
-                serviceRes.IsSuccess = false;
-                serviceRes.Message = ServiceResponseMessages.InvalidPassword;
-                
-                return serviceRes;
+               serviceRes.IsSuccess = false;
+               serviceRes.Message = ServiceResponseMessages.UnexpectedError;
+               return serviceRes;
             }
         }
-        serviceRes.IsSuccess = false;
         serviceRes.Message = ServiceResponseMessages.InvalidLogin;
         
         return serviceRes;
@@ -277,9 +297,19 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
                 
                 return res;
             }
+
+            var sendOtpRes = await _smsService.SendOTPAsync(login);
+            if (!sendOtpRes.IsSuccess)
+            {
+                res.IsSuccess = false;
+                res.Message = sendOtpRes.Message;
+                
+                return res;
+            }
             
             res.IsSuccess = true;
             res.Message = "PhoneNumber";
+            
             return res;
         }
         else
@@ -364,6 +394,17 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
         }
 
         return res;
+    }
+
+    public async Task<ServiceResponse> VerifyOtpAsync(string login, string otp)
+    {
+        var res = _otpService.VerifyOtp(login, otp);
+
+        return new  ServiceResponse()
+        {
+            IsSuccess = res,
+            Message = res? "" : "Invalid code!"
+        };
     }
 
     private async Task<GoogleJsonWebSignature.Payload> GetPayloadFromIdTokenAsync(string token)

@@ -9,4 +9,6 @@ public interface IUserAuthService : IGenericUserAuthService<RegisterMarketplaceU
 {
     public Task<ServiceResponse> CheckLoginAsync(string login);
     public Task<ServiceResponse<TokenModel>> GoogleAuthAsync(GoogleLoginModel model);
+
+    public Task<ServiceResponse> VerifyOtpAsync(string login, string otp);
 }
