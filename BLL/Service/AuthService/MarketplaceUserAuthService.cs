@@ -317,6 +317,7 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
                 var refreshToken = await _jwtService.GenerateRefreshTokenAsync();
                 
                 res.IsSuccess = true;
+                res.Entity = new TokenModel();
                 res.Entity.RefreshToken = refreshToken;
                 res.Entity.AccessToken = jwt;
                 
