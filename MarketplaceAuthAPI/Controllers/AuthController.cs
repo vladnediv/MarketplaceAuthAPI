@@ -4,6 +4,7 @@ using BLL.Model.RequestModel.HelperModel.RegisterModel;
 using BLL.Model.ResponseModel;
 using BLL.Service;
 using BLL.Service.AuthService;
+using Domain.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -114,6 +115,17 @@ public class AuthController : Controller
         return Ok(userResult);
     }
 
+    [HttpPost("google")]
+    public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginModel dto)
+    {
+        var res = await _userAuthService.GoogleAuthAsync(dto);
+        if (res.IsSuccess)
+        {
+            return Ok(res);
+        }
+        return BadRequest(res);
+    }
+    
     [HttpPost("CheckLogin")]
     public async Task<IActionResult> CheckLoginAsync([FromBody] string login)
     {

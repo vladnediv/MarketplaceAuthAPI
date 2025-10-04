@@ -6,6 +6,7 @@ using BLL.Model.RequestModel.HelperModel.UpdateModel;
 using BLL.Model.ResponseModel;
 using BLL.Service.Interface;
 using Domain.Model;
+using Google.Apis.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -297,7 +298,84 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
             return res;
         }
     }
-    
+
+    public async Task<ServiceResponse<TokenModel>> GoogleAuthAsync(GoogleLoginModel model)
+    {
+        var res = new ServiceResponse<TokenModel>();
+
+        var payload = await GetPayloadFromIdTokenAsync(model.IdToken);
+
+        DateTimeOffset expireTime = payload != null? DateTimeOffset.FromUnixTimeSeconds((long)payload.ExpirationTimeSeconds) : DateTimeOffset.Now;
+        if (payload != null && DateTimeOffset.UtcNow < expireTime)
+        {
+            
+            var findRes = await _userManager.FindByEmailAsync(payload.Email);
+            if (findRes != null)
+            {
+                //login
+                var jwt = await _jwtService.GenerateAccessTokenAsync(findRes);
+                var refreshToken = await _jwtService.GenerateRefreshTokenAsync();
+                
+                res.IsSuccess = true;
+                res.Entity.RefreshToken = refreshToken;
+                res.Entity.AccessToken = jwt;
+                
+                return res;
+            }
+            else
+            {
+                //register
+                GenericRegisterUserModel<RegisterMarketplaceUser> registerModel =
+                    new GenericRegisterUserModel<RegisterMarketplaceUser>()
+                    {
+                        Email = payload.Email,
+                        //TODO Send email with this temporary password
+                        Password = Guid.NewGuid().ToString(),
+                        PhoneNumber = "",
+                        UserModel = new RegisterMarketplaceUser()
+                        {
+                            FirstName = payload.GivenName,
+                            LastName = payload.FamilyName
+                        }
+                    };
+                
+                var registerRes = await RegisterAsync(registerModel);
+                if (registerRes.IsSuccess)
+                {
+                    res.IsSuccess = true;
+                    res.Message = "Registered";
+                    
+                    return res;
+                }
+                else
+                {
+                    res.IsSuccess = false;
+                    res.Message = registerRes.Message;
+                    
+                    return res;
+                }
+            }
+        }
+        else
+        {
+            res.IsSuccess = false;
+            res.Message = ServiceResponseMessages.UnexpectedError;
+        }
+
+        return res;
+    }
+
+    private async Task<GoogleJsonWebSignature.Payload> GetPayloadFromIdTokenAsync(string token)
+    {
+        var payload = await GoogleJsonWebSignature.ValidateAsync(token, new GoogleJsonWebSignature.ValidationSettings
+        {
+            //here we should read the audience from some key vault
+            Audience = new[] { "580941447228-5ljmuricq42jr02kpo87gl5lpfqhk8se.apps.googleusercontent.com" }
+        });
+        
+        return payload;
+    }
+
     private bool IsPhoneNumber(string phoneNumber)
     {
         if (string.IsNullOrWhiteSpace(phoneNumber))

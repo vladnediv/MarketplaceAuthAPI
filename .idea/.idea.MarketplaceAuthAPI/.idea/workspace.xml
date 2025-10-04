@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BLL/Model/RequestModel/GoogleLoginModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/Interface/IUserAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +77,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7e333a9f3297ba553cccfd3b7c3f1f96125b23d09f883e4d6e66d531559a4c/Type.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/88249243c7f3fdbe7ee28384a24562de33bd287ea74c2a1ede87e44d08816/ValueTask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/94cc7dd8b42f4393d4f95efc57c42686ad75199b1d74f6cde624c27e6b8b/DateTimeOffset.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a4f51f201dca40bd938f37a528b1d91b4f1089a8ba612a057c4732bf7c21aad/FieldInfo.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a55a69b88a788e2b58fa2a1c5c5a7c4ccb3bc45715dd4cffc33a3013f0bd6/HttpProtocol.Generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a57f99df49c0708426537f51c93f3948f7232788dd228c42c759f32b78e6d64/FieldInfo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -112,29 +118,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.MarketplaceAuthAPI.executor": "Run",
-    ".NET Launch Settings Profile.Unnamed.executor": "Run",
-    ".NET Project.Unnamed.executor": "Run",
-    "HTTP Request.All in MarketplaceAuthAPI-endpoints.executor": "Run",
-    "HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor": "Run",
-    "Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor": "Run",
-    "Publish to folder.Publish MarketplaceAuthAPI to folder.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "backend__core",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.MarketplaceAuthAPI.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in MarketplaceAuthAPI-endpoints.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.MarketplaceAuthAPI-endpoints | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;Publish to custom server.Publish MarketplaceAuthAPI to custom server (1).executor&quot;: &quot;Run&quot;,
+    &quot;Publish to custom server.Publish MarketplaceAuthAPI to custom server.executor&quot;: &quot;Run&quot;,
+    &quot;Publish to folder.Publish MarketplaceAuthAPI to folder.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend__core&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MarketplaceAuthAPI">
     <configuration name="Publish MarketplaceAuthAPI to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" platform="Any CPU" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/../AuthApiPublished" target_framework="net9.0" uuid_high="-3625306193737658771" uuid_low="-5690807670208737742" />
@@ -236,6 +242,8 @@
       <workItem from="1757512803531" duration="13856000" />
       <workItem from="1757686710175" duration="9794000" />
       <workItem from="1758544732497" duration="15871000" />
+      <workItem from="1759499343701" duration="2321000" />
+      <workItem from="1759595237693" duration="5051000" />
     </task>
     <servers />
   </component>
@@ -273,13 +281,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
-          <line>68</line>
+          <line>69</line>
           <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RegisterAdminAsync'">
             <startOffsets>
-              <option value="2179" />
+              <option value="2199" />
             </startOffsets>
             <endOffsets>
-              <option value="2248" />
+              <option value="2268" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />
@@ -299,16 +307,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
-          <line>118</line>
+          <line>126</line>
           <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'CheckLoginAsync'">
             <startOffsets>
-              <option value="3763" />
+              <option value="3994" />
             </startOffsets>
             <endOffsets>
-              <option value="3764" />
+              <option value="3995" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>119</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'GoogleLogin'">
+            <startOffsets>
+              <option value="3783" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3784" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs</url>
+          <line>308</line>
+          <properties documentPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" containingFunctionPresentation="Method 'GoogleAuthAsync'">
+            <startOffsets>
+              <option value="10855" />
+            </startOffsets>
+            <endOffsets>
+              <option value="10913" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
