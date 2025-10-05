@@ -58,7 +58,7 @@ public class AuthController : Controller
 
         return BadRequest(result);
     }
-    
+
     [Authorize(Roles = IdentityRoles.SuperAdmin)]
     [HttpPost("RegisterAdmin")]
     public async Task<IActionResult> RegisterAdminAsync([FromBody] RegisterUserModel<RegisterMarketplaceAdmin> model)
@@ -67,12 +67,14 @@ public class AuthController : Controller
         {
             return BadRequest(ModelState);
         }
+
         var res = await _adminAuthService.RegisterAsync(model.RegisterModel);
 
         if (res.IsSuccess)
         {
             return Ok(res);
         }
+
         return BadRequest(res);
     }
 
@@ -105,7 +107,7 @@ public class AuthController : Controller
                 {
                     return Unauthorized(adminResult);
                 }
-                
+
                 return Ok(adminResult);
             }
 
@@ -123,9 +125,10 @@ public class AuthController : Controller
         {
             return Ok(res);
         }
+
         return BadRequest(res);
     }
-    
+
     [HttpPost("CheckLogin")]
     public async Task<IActionResult> CheckLoginAsync([FromBody] string login)
     {
@@ -134,11 +137,12 @@ public class AuthController : Controller
         {
             return Ok(result);
         }
+
         return BadRequest(result);
     }
 
     [HttpPost("VerifyOtp")]
-    public async Task<IActionResult> VerifyOtpAsync([FromBody] string login, string otp)
+    public async Task<IActionResult> VerifyOtpAsync(string login, string otp)
     {
         var res = await _userAuthService.VerifyOtpAsync(login, otp);
 

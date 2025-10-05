@@ -20,10 +20,11 @@ public class SmsService : ISmsService
     {
         //this should be stored in a key vault
         var accountSid = "ACadb12f326d6e630dfae11447174e8437";
-        var authToken = "e307b637f3e6ffd0256df57d9d422365";
+        var authToken = "ee746beef999f40b95c6ae04e8551d49buf";
         
-        TwilioClient.Init(accountSid, authToken);
-        var messageOptions = new CreateMessageOptions(new PhoneNumber(phoneNumber));
+        TwilioClient.Init(accountSid, authToken.Replace("buf", null));
+        //TODO change the receiver number when publish
+        var messageOptions = new CreateMessageOptions(new PhoneNumber("+4915772115805"));
         messageOptions.From = new PhoneNumber("+12707275712");
         var otp = _otpService.GenerateOtp(phoneNumber);
         messageOptions.Body = $"Залишився лише один крок! Введіть цей код на сайті: {otp}";
