@@ -1,151 +1,139 @@
 # 🛡️ MarketplaceAuthAPI
-Authentifizierungs- und Autorisierungsservice für den Marketplace  
-Cloud-ready · Clean Architecture · Mehrstufiges Rollensystem
+
+"Authentication & Authorization API for the Marketplace"
+
 
 ---
 
-## 🧩 Projektüberblick
+## 🧩 Project Overview
 
-Die **MarketplaceAuthAPI** ist der zentrale Identity- und Security-Dienst des Marketplaces.  
-Sie verwaltet die Authentifizierung, Autorisierung und Nutzeridentitäten für alle weiteren Systeme und stellt sicher, dass nur verifizierte und berechtigte Anfragen Zugriff auf die Business-APIs erhalten.
+The MarketplaceAuthAPI serves as the central identity and security service of the marketplace.
+It manages **authentication, authorization, and user identities** and ensures that **only verified and authorized requests** can access the business APIs.
 
-Die API übernimmt:
-- Registrierung & Login (E-Mail/Passwort, Google OAuth2, OTP/Telefon)
-- Rollen- und Berechtigungslogik (User, Shop, Admin, SuperAdmin)
-- Profilverwaltung
-- Token-Verwaltung (Access & Refresh Tokens)
-- Sicherheit, Validierung und Zuständigkeitsgrenzen
+The API's responsibilities:
+- Registration and login (email/password, Google OAuth2, OTP/phone verification)
+- Role and permission management (User, Shop, Admin, SuperAdmin)
+- User profile management
+- Token handling (access and refresh tokens)
+- Security, validation, and access control boundaries
 
 ---
 
-## 🏗 Architektur
+## 🏗 Architecture
+The API is built on a layered architecture consisting of:
 
-Die API basiert auf einer **Clean-/Layered-Architecture**, bestehend aus:
+| Layer | Responsibility |
+|------|-----------------|
+| **AuthAPI** | Controllers, routing, request/response handling |
+| **BLL (Business Logic Layer)** | Services, business rules, coordinates repositories |
+| **DAL (Data Access Layer)** | Repositories, EF Core, persistence logic |
+| **Domain** | Domain entities (C# classes used across BLL/DAL) |
 
-| Schicht | Aufgabe |
+
+Additional architectural decisions:
+- DTOs and domain models are separated → **improves security and reduces exposure of internal data**
+- Repository Pattern → **encapsulated and structured data access**
+- Dependency Injection → **loose coupling and improved testability**
+
+---
+
+## 🔐 Authentication & Login Flows
+
+
+✅ Email & password
+
+✅ Google OAuth2 (automatic registration if the account does not already exist)
+
+✅ OTP phone verification during both registration and login
+
+✅ Token-based authentication using access & refresh tokens
+
+✅ Logout → refresh token is invalidated
+
+
+---
+
+## 👥 Roles
+
+| Role | Description | Created by |
+|------|-------------|-------------|
+| **User** | Standard user | Self-registration |
+| **Shop** | Shop owner | Self-registration |
+| **Admin** | Administrative role | Created only by SuperAdmin |
+| **SuperAdmin** | Highest authority | Created via database seeding |
+
+---
+
+## 📦 Domain Models
+
+| Model | Purpose |
 |--------|---------|
-| **API Layer** | Controller, Routing, Input/Output |
-| **Application Layer** | Businesslogik, Services, Validierung |
-| **Domain Layer** | Domänenmodelle & Geschäftsregeln |
-| **Infrastructure Layer** | Datenzugriff (EF Core, Repositories) |
-
-Weitere Architekturentscheidungen:
-
-- **DTOs & Domainmodelle getrennt** → Sicherheit & reduzierte Exposition
-- **Repository Pattern** → gekapselte Datenzugriffe
-- **Dependency Injection** → lose Kopplung & Testbarkeit
-- **Identity entkoppelt von Domain** → saubere Verantwortlichkeiten
+| `ApplicationUser` | Identity layer for authentication and security |
+| `MarketplaceUser` | User profile including address, name and profile picture |
+| `MarketplaceShop` | Shop profile (name, logo and multiple addresses) |
+| `MarketplaceAdmin` | Admin profile linked to an ApplicationUser |
+| `Address` | Reusable address model (used by both users and shops) |
 
 ---
 
-## 🔐 Authentifizierungs- & Login-Flows
-
-✅ E-Mail & Passwort  
-✅ Google OAuth2 (automatische Registrierung, falls nicht vorhanden)  
-✅ OTP (Telefonverifizierung) bei Registrierung **und** Login  
-✅ Token-System mit Access & Refresh Tokens  
-✅ Logout → Refresh Token wird ungültig gemacht
-
-
----
-
-## 👥 Rollenmodell
-
-| Rolle | Beschreibung | Erstellung |
-|------|--------------|------------|
-| **User** | Standard-Nutzer | Selbstregistrierung |
-| **Shop** | Shop-Betreiber | Selbstregistrierung |
-| **Admin** | Verwaltungsebene | Nur durch SuperAdmin |
-| **SuperAdmin** | höchste Instanz | per Seeding angelegt |
-
----
-
-## 📦 Domainmodelle
-
-| Modell | Zweck |
-|--------|-------|
-| `ApplicationUser` | Identität auf Auth-/Security-Ebene |
-| `MarketplaceUser` | Benutzerprofil inkl. Adresse, Namen, Bild |
-| `MarketplaceShop` | Shopprofil (Name, Logo, mehrere Adressen) |
-| `MarketplaceAdmin` | Admin-Profil, gebunden an ApplicationUser |
-| `Address` | wiederverwendbares Adressmodell (User/Shop) |
-
----
-
-## 📡 Controller & Verantwortlichkeiten
+## 📡 Controllers & Responsibilities
 
 ### ✅ AuthController
-Bereits voll implementiert.  
-Funktionen:
 
-| Endpoint | Zweck |
-|---------|-------|
-| /check-login | Prüft E-Mail oder Telefonnummer & Existenz |
-| /register-user | Registrierung eines Users |
-| /register-shop | Registrierung eines Shop-Kontos |
-| /register-admin | (nur SuperAdmin) für Admin-Accounts |
-| /login | Login mit E-Mail/Telefon |
-| /google | OAuth2 Social Login |
-| /verify-otp | Verifizierung per SMS/Telefon |
-| /refresh-token | Token-Erneuerung |
-| /logout | Refresh Token ungültig machen |
+| Endpoint | Purpose |
+|----------|---------|
+| <code>/check-login</code> | Checks whether the input is an email or phone number and verifies if it exists |
+| <code>/register-user</code> | Registers a standard user account |
+| <code>/register-shop</code> | Registers a shop owner account |
+| <code>/register-admin</code> | (SuperAdmin only) creates admin accounts |
+| <code>/login</code> | Login via email or phone number |
+| <code>/google</code> | OAuth2 login |
+| <code>/verify-otp</code> | Phone/SMS OTP verification |
+| <code>/refresh-token</code> | Issues a new access & refresh token pair |
+| <code>/logout</code> | Invalidates the refresh token and ends the session |
 
 ### ✅ UserController
-| Funktion | Zweck |
-|----------|--------|
-| GetPersonalInfo | Eigene Nutzerdaten abrufen |
-| UpdatePersonalInfo | Profildaten aktualisieren |
-| DeleteAccount | Account löschen (sicherheitsgeprüft) |
 
-### 🏛 AdminController (architektonisch vorbereitet)
-Grundlage für erweiterbare administrative Funktionen.  
-Berechtigt nur für Admin/SuperAdmin.
+| Endpoint | Purpose |
+|----------|---------|
+| <code>/GetPersonalInfo</code> | Retrieve the user's own personal data |
+| <code>/UpdatePersonalInfo</code> | Update profile information |
+| <code>/DeleteAccount</code> | Delete the account (secured and permission-checked) |
 
-### 🏬 ShopController (architektonisch vorbereitet)
-Basis für spätere shop-spezifische Geschäftslogik & Profilverwaltung.
+### 🏛 AdminController (architecturally prepared)
+The controller is already secured and integrated into the role system, allowing future administrative features to be added without architectural changes.
+
+### 🏬 ShopController (architecturally prepared)
+Foundation for future shop-specific business logic and profile management.
 
 ---
 
-## 🧠 Fehlerhandling & Response-Design
+## 🧠 Error Handling & Response Design
 
-Die API nutzt ein einheitliches Antwortschema über `ServiceResponse<T>`, um Businesslogik-konsistente Rückgaben zu garantieren.
+The API uses a unified response format through `ServiceResponse<T>` to ensure consistent business logic responses.
 
-| Element | Beschreibung |
-|--------|--------------|
-| `IsSuccess` | Ergebnisstatus |
-| `Entity / Entities` | Rückgabedaten |
-| `Message` | standardisierte Fehlermeldung |
+| Property | Description |
+|--------|-------------|
+| `IsSuccess` | Indicates whether the operation succeeded |
+| `Entity / Entities` | Contains the returned data (single or collection) |
+| `Message` | Standardized error or info message |
 
-Fehler werden **im Businesslayer erzeugt**, nicht im Controller → saubere Separation of Concerns.  
-HTTP-Statuscodes werden korrekt genutzt (`200/401/403/404/...`).
+Errors are generated in the **business layer**, not in the controller — ensuring a clean separation of concerns.  
+HTTP status codes are used correctly (`200 / 401 / 403 / 404 / ...`).
 
 ---
 
 ## ☁️ Deployment & Cloud Readiness
 
-- Datenbank ist bereits **extern gehostet** (MonsterASP.net, produktionsnah).
-- API aktuell lokal, jedoch **deploy-ready**.
-- Architektur ausgelegt für Cloud-Hosting (z. B. Azure App Service).
-- Azure KeyVault & Secret-Management bereits vorgesehen.
+- The database is already hosted externally (MonsterASP.net, production-like environment).
+- The API currently runs locally but is **fully deployment-ready**.
+- Azure KeyVault and secret management are already planned.
 
-Kein monolithischer Ansatz – die AuthAPI ist als **unabhängiger Security-Service** konzipiert.
-
----
-
-## 🧭 Roadmap
-
-| geplanter Ausbau | Beschreibung |
-|------------------|--------------|
-| ShopController | Konkrete Shop-Funktionen (Profil/Branding/Business-Regeln) |
-| AdminController | Systemweite Verwaltungsfunktionen |
-| Azure-Deployment | Cloudhosting + KeyVault-Integration |
-| MFA/2FA Ausbau | Erweiterung mit zusätzlicher Security-Schicht |
+The AuthAPI is not monolithic — it is designed as an **independent security service** within the overall platform.
 
 ---
 
-## ✅ Fazit
+## ✅ Conclusion
 
-Die MarketplaceAuthAPI dient als sichere, modular erweiterbare Grundlage des gesamten Marketplaces und bildet die technische Identitäts- und Rechteverwaltung für alle weiteren Services ab.  
-Sie ist cloud-ready, sauber strukturiert und folgt Best Practices aus dem Enterprise-Umfeld.
-
----
+The MarketplaceAuthAPI serves as a secure and modular foundation for the entire marketplace, providing identity and access management for all other services.  
+It is cloud-ready, cleanly structured, and follows best practices commonly used in modern enterprise environments.
