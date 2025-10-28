@@ -5,7 +5,7 @@
 
 ---
 
-## 🧩 Project Overview
+## 📌� Project Overview
 
 The MarketplaceAuthAPI serves as the central identity and security service of the marketplace.
 It manages **authentication, authorization, and user identities** and ensures that **only verified and authorized requests** can access the business APIs.
