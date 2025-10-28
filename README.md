@@ -129,7 +129,7 @@ HTTP status codes are used correctly (`200 / 401 / 403 / 404 / ...`).
 - The API currently runs locally but is **fully deployment-ready**.
 - Azure KeyVault and secret management are already planned.
 
-The AuthAPI is not monolithic — it is designed as an **independent security service** within the overall platform.
+AuthAPI runs as a separate API with its own responsibility and can be deployed independently from the business API.
 
 ---
 
