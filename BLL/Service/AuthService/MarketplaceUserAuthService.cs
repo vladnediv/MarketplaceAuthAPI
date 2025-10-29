@@ -360,7 +360,6 @@ public class MarketplaceUserAuthService : HelperService.AuthService, IUserAuthSe
                     new GenericRegisterUserModel<RegisterMarketplaceUser>()
                     {
                         Email = payload.Email,
-                        //TODO Send email with this temporary password
                         Password = Guid.NewGuid().ToString(),
                         PhoneNumber = "",
                         UserModel = new RegisterMarketplaceUser()

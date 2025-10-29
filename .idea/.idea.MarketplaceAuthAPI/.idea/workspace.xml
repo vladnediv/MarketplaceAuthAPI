@@ -11,8 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b8a7b501-c255-4258-b1c2-5a2a83761770" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarketplaceAuthAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BLL/Service/SmsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/SmsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.MarketplaceAuthAPI.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.MarketplaceAuthAPI.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;.NET Project.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;HTTP Request.All in MarketplaceAuthAPI-endpoints.executor&quot;: &quot;Run&quot;,
@@ -242,7 +241,11 @@
       <workItem from="1758544732497" duration="15871000" />
       <workItem from="1759499343701" duration="2321000" />
       <workItem from="1759595237693" duration="14918000" />
-      <workItem from="1759653973325" duration="1624000" />
+      <workItem from="1759653973325" duration="11782000" />
+      <workItem from="1761294687919" duration="53000" />
+      <workItem from="1761474787029" duration="754000" />
+      <workItem from="1761645240788" duration="837000" />
+      <workItem from="1761652676661" duration="1230000" />
     </task>
     <servers />
   </component>
@@ -305,19 +308,6 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs</url>
-          <line>338</line>
-          <properties documentPath="$PROJECT_DIR$/BLL/Service/AuthService/MarketplaceUserAuthService.cs" containingFunctionPresentation="Method 'GoogleAuthAsync'">
-            <startOffsets>
-              <option value="11887" />
-            </startOffsets>
-            <endOffsets>
-              <option value="11945" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
           <line>122</line>
           <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'GoogleLogin'">
@@ -342,6 +332,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs</url>
+          <line>51</line>
+          <properties documentPath="$PROJECT_DIR$/MarketplaceAuthAPI/Controllers/AuthController.cs" containingFunctionPresentation="Method 'RegisterShopAsync'">
+            <startOffsets>
+              <option value="1661" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1759" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
